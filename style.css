@@ -1,0 +1,212 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #98938f;
+    font-weight: bold;
+    background-color: #fcf8f3;
+}
+
+header{
+    height: 150px;
+    background-color: #40393b;
+    padding-top: 30px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-transform: uppercase;
+}
+.logo-big{
+    color: #e28011;
+    font-size: 20px;
+    word-spacing: 7px;
+}
+
+li .logo{
+    margin-left: 20px;
+    text-align: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: #98938f;
+}
+
+.first-section{
+    width: 100%;
+    height: 818px;
+    background: url("image/1-1.jpg") no-repeat;
+    background-size: cover;
+    color: #f2eee9;
+}
+
+.main-title{
+    padding-left: 118px;
+    padding-top: 260px;
+    width: 630px;
+    font-size: 35px;
+    text-transform: uppercase;
+    word-spacing: 7px;
+}
+
+.info-main{
+    padding-left: 118px;
+    word-spacing: 7px;
+    padding-top: 50px;
+}
+
+
+.buttun-catalog{
+    margin-top: 50px;
+    margin-left: 118px;
+    margin-bottom: 260px;
+    border-radius: 50px;
+    padding: 20px 50px;
+    border: 2px solid #e28011;
+    color: #e28011;
+    background-color: transparent;
+}
+
+.buttun-catalog:hover{
+    background-color: #f2eee9;
+    cursor:pointer;
+}
+
+.second-section{
+    margin-top: 145px;
+    line-height: 52.5px;
+}
+
+.four-icon{
+    display: flex;
+    justify-content: space-around;
+    width: 89%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.icon-decor{
+    margin-bottom: 50px;
+    width:375px;
+    height:375px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #f2eee9;
+    font-size: 24px;
+
+}
+
+.back-lamp{
+    background-image: url("image/lamp-smal.jpeg");
+    background-size: cover;
+}
+
+.back-svetilnik{
+    background-image: url("image/svetilnik.jpg");
+    background-size: cover;
+}
+
+.bra{
+    background-image: url("image/bra.jpg");
+    background-size: cover;
+}
+
+.torsher{
+    background-image: url("image/torsher.jpeg");
+    background-size: cover;
+}
+
+.about-shop{
+    padding-left: 118px;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.about-company{
+    padding-left: 118px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 100px;
+    padding-bottom: 115px;
+}
+
+.title-company{
+    width: 40%;
+    font-size: 35px;
+    text-transform: uppercase;
+    padding-top: 50px;
+    word-spacing: 7px;
+}
+
+.text-company{
+    width: 40%;
+    word-spacing: 7px;
+}
+
+.footer-main{
+    height: 150px;
+    background-color: #40393b;
+}
+
+.container{
+    width:100%;
+    margin: 0 auto;
+}
+
+.social-block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 190px;
+    float: left;
+}
+
+.icon--fb::after {
+    content: "";
+    position: absolute;
+    margin-top: 28px;
+    margin-left: 34px;
+
+    width: 30px;
+    height: 25px;
+
+    background-image: url("image/fb-icon.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.icon--fb:active::after {
+    opacity: 0.3;
+}
+
+.icon--ig::after {
+    content: "";
+    position: absolute;
+    margin-top: 29px;
+    margin-left: 29px;
+
+    width: 30px;
+    height: 25px;
+
+    background-image: url("image/insta-icon.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.icon--ig:active::after {
+    opacity: 0.3;
+}
+
+
+.info--block {
+    margin-left: 400px;
+    float: right;
+    margin-right: 118px;
+}
+
+
