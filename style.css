@@ -209,4 +209,109 @@ li .logo{
     margin-right: 118px;
 }
 
+.basket-main{
+    width: 80%;
+    display: flex;
+    background:#40393b;
+}
+
+.basket-info{
+    width: 80%;
+    height: 180px;
+    display: flex;
+    border-bottom: 1px solid #40393b;
+    color: #e28011;
+}
+
+.auth-page .main__footer{
+    padding-top: 55px;
+}
+
+.basket-main p{
+    color: #fcf8f3;
+    text-transform: uppercase;
+}
+.basket-main div{
+    width: 20%;
+    width: 20%;
+    text-align: center;
+    border-right: 1px solid #e28011;
+}
+
+.basket-info div {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+}
+
+.basket-info p {
+    display: flex;
+    align-items: center;
+}
+.basket-decor{
+    display: flex;
+    padding: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+}
+
+.basket-main div:last-child{
+    border-right: none;
+}
+
+.basket-result{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    padding-bottom: 80px;
+}
+
+.basket-pay{
+    width: 80%;
+    color: #e28011;
+}
+
+.basket-pay div{
+    width: 15%;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.basket-pay button{
+    text-transform: uppercase;
+    background-color: #fcf8f3;
+    border: 2px solid #e28011;
+    border-radius: 50px;
+    color: #e28011;
+}
+
+.basket-info__image{
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+}
+
+.basket-info__image img {
+    width: 100%;
+    height: auto;
+}
+
+.main-autoriz{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.main-autoriz .main-title{
+    padding: 0;
+}
+
+.main-autoriz .info-main{
+    padding-left: 0;
+}
 
