@@ -281,7 +281,7 @@ li .logo{
     margin-left: auto;
 }
 
-.basket-pay button{
+.basket-pay  button{
     text-transform: uppercase;
     background-color: #fcf8f3;
     border: 2px solid #e28011;
@@ -314,4 +314,141 @@ li .logo{
 .main-autoriz .info-main{
     padding-left: 0;
 }
+
+.input-area{
+    margin-bottom: 30px;
+}
+
+.input-area button{
+    text-transform: uppercase;
+    background-color: #fcf8f3;
+    border: 2px solid #e28011;
+    border-radius: 50px;
+    color: #e28011;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+input[type=text],input[type=password]{
+    border: 2px solid #e28011;
+    border-radius: 50px;
+}
+
+.link{
+    text-decoration: none;
+    color: #e28011;
+}
+
+.main-catalog{
+    background-color: #40393b;
+}
+
+.main-catalog section{
+    margin-left: 118px;
+    margin-right: 118px;
+}
+
+
+
+
+/*@media only screen and (min-width: 450px) {*/
+/*    .product-wrap {*/
+/*        width: 50%;*/
+/*    }*/
+/*}*/
+
+/*@media only screen and (min-width: 768px) {*/
+/*    .product-wrap {*/
+/*        width: 33.333%;*/
+/*    }*/
+/*}*/
+
+/*@media only screen and (min-width: 1000px) {*/
+/*    .product-wrap {*/
+/*        width: 25%;*/
+/*    }*/
+/*}*/
+
+
+.product-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin:auto;
+}
+
+.product-wrap .wrap{
+    width: 315px;
+    height: 400px;
+    margin-right: 30px;
+    margin-bottom: 100px;
+}
+
+.img-catalog{
+    margin-bottom: 60px;
+}
+
+.product-wrap p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.upper-catalog{
+    text-transform: uppercase;
+}
+
+.wrap p{
+    color: #fcf8f3;
+}
+
+.price{
+    color: #e28011!important;
+}
+
+.product-item {
+    position: relative;
+    overflow: hidden;
+}
+.product-wrap img {
+    display: block;
+    width: 100%;
+}
+
+.about-photo{
+    width: 700px;
+    height: 600px;
+    background-color: #474143;
+    display: flex;
+    justify-content: center;
+}
+
+.about-page{
+    background-color: #40393b;
+}
+
+.main-info{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 118px;
+    margin-right: 118px;
+}
+
+.about-info{
+    width: 50%;
+}
+
+.about-pay  button{
+    text-transform: uppercase;
+    background-color: #fcf8f3;
+    border: 2px solid #e28011;
+    border-radius: 50px;
+    color: #e28011;
+}
+
+
+
 
