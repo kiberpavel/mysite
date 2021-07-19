@@ -22,7 +22,7 @@
         <p>1</p>
       </div>
       <div class="basket-info__image">
-        <p><img src="../../public/image/lamp-smal.jpg" alt="Товар"></p>
+        <p><img src="../../../public/image/lamp-smal.jpg" alt="Товар"></p>
       </div>
       <div>
         <p>Лампа</p>
@@ -31,7 +31,7 @@
         <p>1500</p>
       </div>
       <div >
-        <p><img src="../../public/image/cancel%201.svg" alt="Удалить"></p>
+        <p><img src="../../../public/image/cancel%201.svg" alt="Удалить"></p>
       </div>
     </div>
     <div class="basket-info" >
@@ -39,7 +39,7 @@
         <p>2</p>
       </div>
       <div class="basket-info__image">
-        <p><img src="../../public/image/bra.jpg" alt="Товар"></p>
+        <p><img src="../../../public/image/bra.jpg" alt="Товар"></p>
       </div>
       <div>
         <p>Бра</p>
@@ -48,7 +48,7 @@
         <p>100</p>
       </div>
       <div>
-        <p><img src="../../public/image/cancel%201.svg" alt="Удалить"></p>
+        <p><img src="../../../public/image/cancel%201.svg" alt="Удалить"></p>
       </div>
     </div>
   </section>

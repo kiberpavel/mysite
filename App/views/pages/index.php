@@ -2,7 +2,7 @@
   <section class="first-section container"">
     <h1 class="main-title">Дизайнерские люстры от мировых брендов</h1>
     <p class="info-main">Сделайте интерьер стильным и современным</p>
-		<a href="/views/layouts/catalog.php"><button class="buttun-catalog">В каталог</button></a>
+		<a href="/catalog"><button class="buttun-catalog">В каталог</button></a>
   </section >
   <section class="second-section container">
     <div class="four-icon">
