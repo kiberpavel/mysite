@@ -11,7 +11,7 @@ class AboutController extends Controller{
     }
     
     public function actionAbout(){
-//        $this->pageData['title'] = "О товаре";
-        $this->view->render('about',[]);
+        $title = "О товаре";
+        $this->view->render('about',['title' =>$title]);
     }
 }

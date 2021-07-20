@@ -12,7 +12,7 @@ class BasketController extends Controller{
     }
     
     public function actionBasket(){
-//        $this->pageData['title'] = "Корзина";
-        $this->view->render('basket',[]);
+        $title = "Корзина";
+        $this->view->render('basket',['title' =>$title]);
     }
 }
