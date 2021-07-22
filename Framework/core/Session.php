@@ -7,7 +7,7 @@ class Session{
     }
     
     public function getName(): string{
-        echo session_name();
+        return session_name();
     }
     
     public function setId($id): void{
@@ -15,7 +15,7 @@ class Session{
     }
     
     public function getId(): string{
-        echo session_id();
+        return session_id();
     }
     
     public function cookieExists(): bool{
@@ -49,6 +49,7 @@ class Session{
         if (session_status()==PHP_SESSION_NONE)
         {
             session_start();
+            session_destroy();
         }else {
             session_destroy();
         }

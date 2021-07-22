@@ -6,12 +6,12 @@ ini_set('display_errors', 'On');
 class Route{
     
     private $routes;
-
+    
     public function __construct(){
-        $routesPath = $_SERVER['DOCUMENT_ROOT'] . '/Framework/conf/routes.php';
+        $routesPath = $_SERVER['DOCUMENT_ROOT'] . '/App/conf/routes.php';
         $this->routes = include($routesPath);
     }
-
+    
     //Возвращает запрос строки
     private function getURI()
     {
@@ -28,22 +28,22 @@ class Route{
 
 //            //сравнение $uriPattern и $uri
             if (preg_match("~$uriPattern~", $uri)) {
-        
-        
+                
+                
                 $segments = explode('/', $path);
-        
+                
                 $controllerName = array_shift($segments) . 'Controller';
                 $controllerName=ucfirst($controllerName);
-    
+                
                 $actionName= 'action'. ucfirst(array_shift($segments));
-    
+                
                 $controllerFile = $_SERVER['DOCUMENT_ROOT'] . '/App/controllers/' .
                     $controllerName . '.php';
-    
+                
                 if(file_exists($controllerFile)) {
                     include_once($controllerFile);
                 }
-    
+                
                 $controllerObject = new $controllerName;
                 $result = $controllerObject->$actionName();
                 if($result != null){
