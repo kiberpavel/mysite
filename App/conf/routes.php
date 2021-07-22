@@ -6,4 +6,5 @@ return array(
     'about' =>'about/about',
     'login' =>'login/login',
     'basket' =>'basket/basket',
+    'registration'=>'registration/reg',
 );

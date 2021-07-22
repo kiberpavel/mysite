@@ -312,6 +312,7 @@ li .logo{
     justify-content: space-evenly;
     padding-top: 190px;
     padding-bottom: 190px;
+    align-items: center;
 }
 
 .main-autoriz .main-title{
@@ -338,13 +339,14 @@ li .logo{
     color: #e28011;
     padding-top: 10px;
     padding-bottom: 10px;
+    min-width: 131px;
 }
 
 button:hover{
     cursor: pointer;
 }
 
-input[type=text],input[type=password]{
+input[type=text],input[type=password],input[type=email]{
     border: 2px solid #e28011;
     border-radius: 50px;
     padding-left: 10px;
@@ -509,6 +511,20 @@ input[type=text],input[type=password]{
 
 .distance{
     margin-bottom: 50px;
+}
+
+.cabinet-text{
+    border: 2px solid #e28011;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-width: 216px;
+    background-color: white;
+}
+
+.wrap-edit{
+
 }
 
 
