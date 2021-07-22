@@ -19,7 +19,7 @@ class CatalogModel{
                 break;
             }
         }
-        return $this->product['id'];
+        return $this->product;
     }
 
 }
