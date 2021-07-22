@@ -9,7 +9,7 @@ class CatalogController extends Controller{
     
     public function __construct()
     {
-        $itemList = require_once($_SERVER['DOCUMENT_ROOT'] . '/Framework/conf/db.php');
+        $itemList = require_once($_SERVER['DOCUMENT_ROOT'] . '/App/conf/db.php');
 //        print_r($itemList);
         $this->model = new CatalogModel($itemList);
         $this->view = new View();
