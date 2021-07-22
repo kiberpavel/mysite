@@ -1,10 +1,28 @@
 <?php
 return  [
     [
+        "id" => 5,
+        "name" => "Lamp",
+        "models" => "Deligful Brubeck",
+        "image" => "/public/image/lamp-catalog.png",
+        "about" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci assumenda aut, deleniti doloribus eaque earum eum excepturi,
+        in ipsam molestiae nam omnis perferendis, placeat praesentium quas ut voluptatem? Maiores, necessitatibus.",
+        "country" => "Португалия",
+        "brend" => "Amfdgg",
+        "price" => 600,
+        "quantity" => 25
+    ],
+    [
         "id" => 4,
         "name" => "Lamp",
         "models" => "Deligful Brubeck",
         "image" => "/public/image/lamp-catalog.png",
+        "about" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci assumenda aut, deleniti doloribus eaque earum eum excepturi,
+        in ipsam molestiae nam omnis perferendis, placeat praesentium quas ut voluptatem? Maiores, necessitatibus.",
+        "country" => "Португалия",
+        "brend" => "Amfdgg",
         "price" => 600,
         "quantity" => 25
     ],
@@ -13,6 +31,11 @@ return  [
         "name" => "Lamp",
         "models" => "Deligful Brubeck",
         "image" => "/public/image/lamp-catalog.png",
+        "about" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci assumenda aut, deleniti doloribus eaque earum eum excepturi,
+        in ipsam molestiae nam omnis perferendis, placeat praesentium quas ut voluptatem? Maiores, necessitatibus.",
+        "country" => "Португалия",
+        "brend" => "Amfdgg",
         "price" => 600,
         "quantity" => 25
     ],
@@ -21,6 +44,11 @@ return  [
         "name" => "Bra",
         "models" => "Deligful Brubeck",
         "image" => "/public/image/lamp-catalog.png",
+        "about" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci assumenda aut, deleniti doloribus eaque earum eum excepturi,
+        in ipsam molestiae nam omnis perferendis, placeat praesentium quas ut voluptatem? Maiores, necessitatibus.",
+        "country" => "Португалия",
+        "brend" => "Amfdgg",
         "price" => 500,
         "quantity" => 20
     ],
@@ -29,6 +57,11 @@ return  [
         "name" => "Torsher",
         "models" => "Deligful Brubeck",
         "image" => "/public/image/lamp-catalog.png",
+        "about" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci assumenda aut, deleniti doloribus eaque earum eum excepturi,
+        in ipsam molestiae nam omnis perferendis, placeat praesentium quas ut voluptatem? Maiores, necessitatibus.",
+        "country" => "Португалия",
+        "brend" => "Amfdgg",
         "price" => 400,
         "quantity" => 15
     ],
@@ -37,6 +70,11 @@ return  [
         "name" => "Flour lamp",
         "models" => "Deligful Brubeck",
         "image" => "/public/image/lamp-catalog.png",
+        "about" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci assumenda aut, deleniti doloribus eaque earum eum excepturi,
+        in ipsam molestiae nam omnis perferendis, placeat praesentium quas ut voluptatem? Maiores, necessitatibus.",
+        "country" => "Португалия",
+        "brend" => "Amfdgg",
         "price" => 300,
         "quantity" => 10
     ],
