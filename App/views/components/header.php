@@ -12,8 +12,8 @@
 <body>
 <header>
   <ul class="nav">
+    <li><a href="/index">Главная</a></li>
     <li><a href="/catalog">Каталог</a></li>
-    <li> <a href="/index#about-company">О компании</a> </li>
     <li>
       <div class="logo">
         <p class="logo-big">Lumen Elite Galery</p>
