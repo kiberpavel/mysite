@@ -294,6 +294,7 @@ li .logo{
     color: #e28011;
     padding-top: 10px;
     padding-bottom: 10px;
+    min-width: 131px;
 }
 
 .basket-info__image{
@@ -310,7 +311,7 @@ li .logo{
 .main-autoriz{
     display: flex;
     justify-content: space-evenly;
-    padding-top: 190px;
+    padding-top: 100px;
     padding-bottom: 190px;
     align-items: center;
 }
@@ -525,6 +526,26 @@ input[type=text],input[type=password],input[type=email]{
 
 .wrap-edit{
 
+}
+
+.title-name{
+    font-size: 35px;
+    color: #98938f;
+    text-transform: uppercase;
+    word-spacing: 7px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.login-wrap{
+    margin: 0 auto;
+}
+
+.cabinet-name{
+    font-size: 25px;
+    padding-bottom: 15px;
 }
 
 
