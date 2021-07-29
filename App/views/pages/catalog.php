@@ -1,5 +1,5 @@
 <main class="main-catalog">
-		
+		<p class="title-name">Каталог</p>
   <section class="container catalog-wrapper">
     <p>Раздел</p>
 				  <div class="product-wrap">

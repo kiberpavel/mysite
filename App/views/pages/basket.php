@@ -1,4 +1,5 @@
 <main>
+		<p class="title-name">Корзина</p>
   <section class="basket-decor">
     <div class="basket-main" >
       <div >
