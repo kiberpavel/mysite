@@ -1,5 +1,5 @@
 <?php
-
+namespace Core\Route;
 //Класс маршрутизации
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
@@ -37,7 +37,7 @@ class Route{
                 
                 $actionName= 'action'. ucfirst(array_shift($segments));
                 
-                $controllerFile = $_SERVER['DOCUMENT_ROOT'] . '/App/controllers/' .
+                $controllerFile = $_SERVER['DOCUMENT_ROOT'] . 'Controllers' .
                     $controllerName . '.php';
                 
                 if(file_exists($controllerFile)) {
