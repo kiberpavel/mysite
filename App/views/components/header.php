@@ -12,7 +12,7 @@
 <body>
 <header>
   <ul class="nav">
-    <li><a href="/index">Главная</a></li>
+    <li><a href="/">Главная</a></li>
     <li><a href="/catalog">Каталог</a></li>
     <li>
       <div class="logo">
