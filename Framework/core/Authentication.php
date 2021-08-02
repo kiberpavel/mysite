@@ -1,5 +1,5 @@
 <?php
-
+namespace Core;
 class Authentication{
     
     public $login;
