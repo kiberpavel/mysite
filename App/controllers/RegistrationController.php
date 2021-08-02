@@ -1,11 +1,15 @@
 <?php
+namespace Controllers;
+use Core\Controller;
+use Core\View;
+use Models\RegistrationModel;
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/App/models/RegistrationModel.php');
 
 class  RegistrationController extends Controller{
 
     public function __construct()
     {
+        parent::__construct();
         $this->model= new RegistrationModel();
         $this->view = new View();
     }
