@@ -1,6 +1,7 @@
 <?php
-
-class CatalogModel{
+namespace Models;
+use Core\Model;
+class CatalogModel extends Model{
     public $products;
     public $product;
     

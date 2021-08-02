@@ -1,5 +1,6 @@
 <?php
-    include_once($_SERVER['DOCUMENT_ROOT'] . '/Framework/helpers/autoload.php');
+//    include_once($_SERVER['DOCUMENT_ROOT'] . '/Framework/helpers/autoload.php');
+namespace Core;
 class Controller{
     
     public $model;

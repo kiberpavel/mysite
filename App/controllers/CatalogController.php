@@ -1,7 +1,8 @@
 <?php
-
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/App/models/CatalogModel.php');
-
+namespace Controllers;
+use Core\Controller;
+use Core\View;
+use Models\CatalogModel;
 class CatalogController extends Controller{
     
     public $model;
@@ -9,8 +10,8 @@ class CatalogController extends Controller{
     
     public function __construct()
     {
+        parent::__construct();
         $itemList = require_once($_SERVER['DOCUMENT_ROOT'] . '/App/conf/db.php');
-//        print_r($itemList);
         $this->model = new CatalogModel($itemList);
         $this->view = new View();
     }

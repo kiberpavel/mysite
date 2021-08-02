@@ -1,5 +1,5 @@
 <?php
-
+namespace Core;
 class Session{
     
     public function setName($name): void{
