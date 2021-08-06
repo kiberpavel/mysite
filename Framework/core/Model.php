@@ -1,9 +1,16 @@
 <?php
+
 namespace Core;
-class Model{
-//    protected $database = null;
-//
-//    public function __construct(){
-//        $this-> database = DB::connToDB();
-//    }
+
+use Db\Database;
+use PDO;
+
+class Model
+{
+    protected static $db;
+
+    public static function setDb(PDO $db)
+    {
+        self::$db = $db;
+    }
 }
