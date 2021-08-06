@@ -8,5 +8,6 @@
         <p>Скидки 10% для друзей из социальных сетей.</p>
     </div>
 </footer>
+<script src ="/public/js/dropdown.js"></script>
 </body>
 </html>
