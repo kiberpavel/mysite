@@ -1,8 +1,11 @@
 <?php
+
  namespace Core;
-class View{
-    
-    public function render(string $layout, array $params, string $template = 'default') {
+
+class View
+{
+    public function render(string $layout, array $params, string $template = 'default')
+    {
         $template = $_SERVER['DOCUMENT_ROOT'] . '/App/views/common/' . $template . '.php';
         extract($params);
         $layout = $_SERVER['DOCUMENT_ROOT'] . '/App/views/pages/' . $layout . '.php';
@@ -14,8 +17,7 @@ class View{
             ob_start();
             include_once($template);
             $output = ob_get_clean();
-        }
-        else {
+        } else {
             $output = '';
         }
         echo $output;
