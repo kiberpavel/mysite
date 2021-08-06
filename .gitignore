@@ -2,4 +2,5 @@
 
 /vendor/
 
-/App/conf/db_params.php/
+/App/conf/db_params.php
+
