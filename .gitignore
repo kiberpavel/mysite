@@ -1,3 +1,5 @@
 .idea/
 
 /vendor/
+
+/App/conf/db_params.php/
