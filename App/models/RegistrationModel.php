@@ -13,7 +13,7 @@ class RegistrationModel
     }
     public static function checkSecondName($second_name)
     {
-        if (strlen($second_name) >= 2) {
+        if (strlen($second_name) > 2) {
             return true;
         }
         return false;
