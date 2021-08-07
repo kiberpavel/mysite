@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Session;
+
 class Authentication
 {
     public $login;
@@ -20,15 +22,11 @@ class Authentication
         }
     }
 
-    public function auth($login, $pass): bool
+    public function auth($userId)
     {
-        if (isset($login) && isset($pass)) {
-            $this->login = $login;
-            $this->auth = true;
-            return true;
-        } else {
-            return false;
-        }
+        $start = new Session();
+        $start->start();
+        $_SESSION['user'] = $userId;
     }
 
     public function getLogin(): string
