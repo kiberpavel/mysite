@@ -3,6 +3,7 @@
 namespace Models;
 
 use Core\Model;
+use PDO;
 
 class User extends Model
 {
@@ -19,5 +20,15 @@ class User extends Model
         $sth->execute();
         $this->user = $sth;
         return $this->user;
+    }
+
+    public function checkUserData($login, $password)
+    {
+        $sth = self::$db->prepare("SELECT * FROM Users WHERE login = :login AND password = :password");
+        $sth->bindParam(':login', $login, PDO::PARAM_STR);
+        $sth->bindParam(':password', $password, PDO::PARAM_STR);
+        $sth->execute();
+        $identity = $this->user = $sth->fetch();
+        return $identity;
     }
 }
