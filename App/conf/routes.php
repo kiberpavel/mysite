@@ -23,22 +23,22 @@ return [
         'uniquePage' => true
     ],
     [
-        'url' => 'lamp/(a-z)+',
+        'url' => 'catalog/lamp',
         'controller' => 'catalog',
         'action' => 'category'
     ],
     [
-        'url' => 'torsher',
+        'url' => 'catalog/torsher',
         'controller' => 'catalog',
         'action' => 'category'
     ],
     [
-        'url' => 'bra',
+        'url' => 'catalog/bra',
         'controller' => 'catalog',
         'action' => 'category'
     ],
     [
-        'url' => 'flourlamp',
+        'url' => 'catalog/flourlamp',
         'controller' => 'catalog',
         'action' => 'category'
     ],
@@ -63,29 +63,14 @@ return [
         'action' => 'cabinet',
     ],
     [
+        'url' => 'signup',
+        'controller' => 'registration',
+        'action' => 'signUp',
+    ],
+    [
         'url' => 'registration',
         'controller' => 'registration',
         'action' => 'reg',
-    ],
-    [
-        'url' => 'lamp',
-        'controller' => 'catalog',
-        'action' => 'catalog'
-    ],
-    [
-        'url' => 'torsher',
-        'controller' => 'catalog',
-        'action' => 'catalog'
-    ],
-    [
-        'url' => 'bra',
-        'controller' => 'catalog',
-        'action' => 'catalog'
-    ],
-    [
-        'url' => 'flourLamp',
-        'controller' => 'catalog',
-        'action' => 'catalog'
     ],
     [
         'url' => 'about/([0-9]+)',
