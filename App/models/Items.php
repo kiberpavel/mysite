@@ -42,7 +42,8 @@ class Items extends Model
     {
         $sth = self::$db->prepare("SELECT * FROM Items INNER JOIN Category on Items.id_category=Category.id WHERE Category.name = :name");
         $sth->bindParam(':name', $name);
-        $sth->items = $sth->fetchAll();
+        $sth->execute();
+        $this->items = $sth->fetchAll();
         return $this->items;
     }
     public function getCategory()
