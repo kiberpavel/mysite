@@ -3,12 +3,18 @@
 namespace Controllers;
 
 use Core\Controller;
+use Core\View;
+use Db\Database;
+use Models\Items;
 
 class AboutController extends Controller
 {
     public function __construct()
     {
         parent::__construct();
+        $db = Database::getConnection();
+        $this->items = new Items();
+        $this->items->setDb($db);
     }
 
     public function actionAbout()
@@ -24,7 +30,9 @@ class AboutController extends Controller
             'photo' => $photo,
             'country' => $country,
             'brend' => $brend,
-            'price' => $price
+            'price' => $price,
+            'person' => $this->person,
+            'user' => $this->userInfo
             ];
         $this->view->render('about', $params);
     }
