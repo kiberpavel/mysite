@@ -5,30 +5,27 @@
 						<p class="cabinet-name">Данные</p>
 						<form>
 								<div class="input-wrap">
-										<p class="cabinet-text">Ваше имя</p>
+										<p class="cabinet-text"><?= $user['first_name']?></p>
 								</div>
 								<div class="input-wrap">
-										<p class="cabinet-text">Ваша фамилия</p>
+										<p class="cabinet-text"><?= $user['second_name']?></p>
 								</div>
 								<div class="input-wrap">
-										<p class="cabinet-text">Ваш логин</p>
+										<p class="cabinet-text"><?= $user['login']?></p>
 								</div>
 								<div class="input-wrap">
-										<p class="cabinet-text">Ваша почта</p>
+										<p class="cabinet-text"><?= $user['email']?></p>
 								</div>
 								<div class="input-wrap button-wrap">
-										<button>Выход</button>
+										<button><a href="/logout">Выход</a></button>
 								</div>
 						</form>
 				</section>
 				<section class="wrap-edit">
 						<p class="cabinet-name">Изменение пароля</p>
-						<form>
+						<form action="#" method="post">
 								<div class="input-wrap">
-										<input type="password" placeholder="Введите пароль" name="login" class="input" >
-								</div>
-								<div class="input-wrap">
-										<input type="password" placeholder="Повторите пароль" name="password"  class="input" >
+										<input type="password" placeholder="Введите пароль" name="password" class="input" >
 								</div>
 								<div class="input-wrap button-wrap">
 										<button>Изменить пароль</button>
