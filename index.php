@@ -5,6 +5,7 @@ ini_set('display_errors', 'On');
 
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
+use Core\Session;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
@@ -16,27 +17,8 @@ use Monolog\Handler\StreamHandler;
 //$log->warning('Warning');
 //$log->error('Error');
 
-//$host = 'localhost';
-//$dbname = 'butenko_db';
-//$username = 'butenko';
-//$password = '1000';
-
-//try {
-//    $db = Database::getConnection();
-//}
-//catch(PDOException $e) {
-//    echo $e->getMessage();
-//    exit();
-//}
-//echo "Подключение успешно установлено";
-
-//$item = new Items();
-//$item->selectAll();
-//
-//foreach ($item as $arr){
-//    print_r($arr);
-//        echo "<br>";
-//}
+$start = new Session();
+$start->start();
 
 $router = new Core\Route();
 $router->run();
