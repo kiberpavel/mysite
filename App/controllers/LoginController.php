@@ -33,17 +33,17 @@ class LoginController extends Controller
 
             $password = md5($password . "skajhagkbgw");
 
-            if (RegistrationModel::checkLogin($login)) {
-                {
-                    $errors[] = 'Неправильный логин';
-                }
-            }
+//            if (RegistrationModel::checkLogin($login)) {
+//                {
+//                    $errors[] = 'Неправильный логин';
+//                }
+//            }
+//
+//            if (RegistrationModel::checkPassword($password)) {
+//                $errors[] = 'Неккоректны пароль';
+//            }
 
-            if (RegistrationModel::checkPassword($password)) {
-                $errors[] = 'Неккоректны пароль';
-            }
-
-            $userId = $this->user->checkUserData($login, $password);
+            $userId = $this->user->getUserData($login, $password);
             if ($userId == false) {
                 $errors[] = "Неправильно введенные данные для входа";
             } else {
@@ -52,8 +52,13 @@ class LoginController extends Controller
             }
         }
 //        var_dump($this->user->checkUserData('pablo','1000'));
-        $params = ['title' => 'Авторизация'];
+        $params = ['title' => 'Авторизация','errors' => $errors, 'person' => $this->person,];
         $this->view->render('login', $params);
         return true;
+    }
+
+    public function actionLogout()
+    {
+        $this->autentif->logOut();
     }
 }
