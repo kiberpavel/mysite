@@ -1,14 +1,21 @@
 <?php
-//    include_once($_SERVER['DOCUMENT_ROOT'] . '/Framework/helpers/autoload.php');
+
 namespace Core;
-class Controller{
-    
+
+use Db\Database;
+use Models\Items;
+
+class Controller
+{
+    public $items;
     public $model;
     public $view;
-//    protected $pageData=array();
-    
-    public function __construct(){
+
+    public function __construct()
+    {
+        $db = Database::getConnection();
+        $this->items = new Items();
+        $this->items->setDb($db);
         $this->view = new View();
-        $this->model = new Model();
     }
 }

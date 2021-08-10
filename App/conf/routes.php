@@ -23,14 +23,29 @@ return [
         'uniquePage' => true
     ],
     [
+        'url' => 'catalog/lamp',
+        'controller' => 'catalog',
+        'action' => 'category'
+    ],
+    [
+        'url' => 'catalog/torsher',
+        'controller' => 'catalog',
+        'action' => 'category'
+    ],
+    [
+        'url' => 'catalog/bra',
+        'controller' => 'catalog',
+        'action' => 'category'
+    ],
+    [
+        'url' => 'catalog/flourlamp',
+        'controller' => 'catalog',
+        'action' => 'category'
+    ],
+    [
         'url' => 'catalog',
         'controller' => 'catalog',
         'action' => 'catalog',
-    ],
-    [
-        'url' => 'about',
-        'controller' => 'about',
-        'action' => 'about',
     ],
     [
         'url' => 'login',
@@ -48,9 +63,20 @@ return [
         'action' => 'cabinet',
     ],
     [
+        'url' => 'signup',
+        'controller' => 'registration',
+        'action' => 'signUp',
+    ],
+    [
         'url' => 'registration',
         'controller' => 'registration',
         'action' => 'reg',
+    ],
+    [
+        'url' => 'about/([0-9]+)',
+        'controller' => 'about',
+        'action' => 'about',
+        'uniquePage' => true
     ],
     [
         'url' => '([0-9A-z_]+)',
@@ -58,5 +84,6 @@ return [
         'action' => '404',
         'uniquePage' => true
     ],
+
 
 ];

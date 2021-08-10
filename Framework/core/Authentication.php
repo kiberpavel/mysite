@@ -1,43 +1,46 @@
 <?php
+
 namespace Core;
-class Authentication{
-    
+
+use Core\Session;
+
+class Authentication
+{
     public $login;
     public $auth;
-    
+
     public function __construct()
     {
-        $this->logOut();
     }
-    
-    public function isAuth(): bool{
-            if ($this->auth){
-                return TRUE;
-            }else{
-                return FALSE;
-            }
-    }
-    
-    public function auth($login, $pass): bool{
-        if (isset($login) && isset($pass)){
-            $this->login = $login;
-            $this->auth = true;
-            return TRUE;
-        }else{
-            return FALSE;
+
+    public function isAuth(): bool
+    {
+        if ($this->auth) {
+            return true;
+        } else {
+            return false;
         }
     }
-    
-    public function getLogin(): string{
-        if(isset($this->login)){
+
+    public function auth($userId)
+    {
+        $start = new Session();
+        $start->start();
+        $_SESSION['user'] = $userId;
+    }
+
+    public function getLogin(): string
+    {
+        if (isset($this->login)) {
             return $this->login;
-        }else{
-            return FALSE;
+        } else {
+            return false;
         }
     }
-    
-    public function logOut(): void{
-            $this->auth =false;
-            $this->login = '';
+
+    public function logOut(): void
+    {
+        $this->auth = false;
+        $this->login = '';
     }
 }

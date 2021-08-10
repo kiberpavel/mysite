@@ -1,22 +1,32 @@
 <main class="main-catalog">
-		<p class="title-name">Каталог</p>
+        <p class="title-name">Каталог</p>
   <section class="container catalog-wrapper">
-    <p>Раздел</p>
-				  <div class="product-wrap">
-              <?php foreach ($itemList as $item): ?>
-              <?php extract($item, EXTR_OVERWRITE); ?>
-						  <a class="wrap" href="/about">
-								  <div class="img-catalog">
-										  <img src="<?= $image ?>" alt="Товар" width="315" height="200">
-								  </div>
-								  <p><?= $name ?></p>
-								  <div class="upper-catalog">
-										  <p><?= $models ?></p>
-										  <p class="price"><?= $price ?></p>
-								  </div>
-						  </a>
+          <ul class="menu">
+                  <li class="menu-item">
+                          <p class="button-categoy">Разделы</p>
+                          <ul class="sub-menu">
+                              <?php foreach ($categoryList as $category) : ?>
+                                  <?php extract($category, EXTR_OVERWRITE); ?>
+                                  <li><a href="/catalog/<?=strtolower($name) ?>"><?= $name ?></a></li>
+                              <?php endforeach; ?>
+                          </ul>
+                  </li>
+          </ul>
+                  <div class="product-wrap">
+              <?php foreach ($itemList as $item) : ?>
+                    <?php extract($item, EXTR_OVERWRITE); ?>
+                          <a class="wrap" href="/about/<?=$id?>">
+                                  <div class="img-catalog">
+                                          <img src="/public/image/<?= $photo ?>" alt="Товар" width="315" height="200">
+                                  </div>
+                                  <p><?= $name ?></p>
+                                  <div class="upper-catalog">
+                                          <p><?= $model ?></p>
+                                          <p class="price"><?= $price ?></p>
+                                  </div>
+                          </a>
               <?php endforeach; ?>
-				  </div>
+                  </div>
   </section>
 
 </main>
