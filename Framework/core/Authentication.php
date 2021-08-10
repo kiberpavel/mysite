@@ -2,8 +2,6 @@
 
 namespace Core;
 
-use Core\Session;
-
 class Authentication
 {
     public $login;
@@ -15,18 +13,25 @@ class Authentication
 
     public function isAuth(): bool
     {
-        if ($this->auth) {
+        if (isset($_SESSION['user'])) {
             return true;
         } else {
             return false;
+//            header("Location: /login");
         }
     }
 
     public function auth($userId)
     {
-        $start = new Session();
-        $start->start();
         $_SESSION['user'] = $userId;
+    }
+
+    public function isGuest()
+    {
+        if (isset($_SESSION['user'])) {
+            return false;
+        }
+        return true;
     }
 
     public function getLogin(): string
@@ -40,7 +45,17 @@ class Authentication
 
     public function logOut(): void
     {
-        $this->auth = false;
-        $this->login = '';
+        $delete = new Session();
+        $delete->delete('user');
+
+        header("Location: /");
+    }
+
+    public function getUser()
+    {
+        if ($this->isAuth()) {
+            return $_SESSION['user'];
+        }
+        return false;
     }
 }
