@@ -22,13 +22,33 @@ class User extends Model
         return $this->user;
     }
 
-    public function checkUserData($login, $password)
+    public function getUserData($login, $password)
     {
         $sth = self::$db->prepare("SELECT * FROM Users WHERE login = :login AND password = :password");
         $sth->bindParam(':login', $login, PDO::PARAM_STR);
         $sth->bindParam(':password', $password, PDO::PARAM_STR);
+        $sth->setFetchMode(PDO::FETCH_ASSOC);
         $sth->execute();
         $identity = $this->user = $sth->fetch();
         return $identity;
+    }
+    public function findById($id)
+    {
+        $sth = self::$db->prepare("SELECT * FROM Users WHERE id = :id");
+        $sth->bindParam(':id', $id, PDO::PARAM_INT);
+        $sth->setFetchMode(PDO::FETCH_ASSOC);
+        $sth->execute();
+        $this->user = $sth->fetch();
+        return $this->user;
+    }
+    public function updatePassword($password, $login)
+    {
+        $sth = self::$db->prepare("UPDATE Users SET password = :password WHERE login = :login");
+        $sth->bindParam(':password', $password, PDO::PARAM_STR);
+        $sth->bindParam(':login', $login, PDO::PARAM_STR);
+        $sth->setFetchMode(PDO::FETCH_ASSOC);
+        $sth->execute();
+        $this->user = $sth->fetch();
+        return $this->user;
     }
 }

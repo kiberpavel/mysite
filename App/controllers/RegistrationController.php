@@ -12,11 +12,8 @@ class RegistrationController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $db = Database::getConnection();
-        $this->user = new User();
-        $this->user->setDb($db);
     }
-    
+
     public function actionReg()
     {
         $name = '';
@@ -25,16 +22,16 @@ class RegistrationController extends Controller
         $password = '';
         $email = '';
         $result = false;
-        
+
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $second_name = $_POST['second_name'];
             $login = $_POST['login'];
             $password = $_POST['password'];
             $email = $_POST['email'];
-            
+
             $errors = false;
-            
+
             $password = md5($password . "skajhagkbgw");
 
 //            if (!RegistrationModel::checkName($name)) {
@@ -65,11 +62,10 @@ class RegistrationController extends Controller
         }
 
 //        $check = RegistrationModel::checkType();
-            
-        
-        
-        $title = "Регистрация";
-        $this->view->render('registration', ['title' => $title, 'errors' => $errors, 'result' => $result]);
+
+
+        $params = ['title' => "Регистрация",'errors' => $errors,'result' => $result,  'user' => $this->userInfo, 'person'=>$this->person];
+        $this->view->render('registration', $params);
         return true;
     }
 }

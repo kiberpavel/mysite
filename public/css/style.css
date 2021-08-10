@@ -364,34 +364,13 @@ input[type=text],input[type=password],input[type=email]{
     background-color: #fcf8f3;
 }
 
-
-
-/*@media only screen and (min-width: 450px) {*/
-/*    .product-wrap {*/
-/*        width: 50%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (min-width: 768px) {*/
-/*    .product-wrap {*/
-/*        width: 33.333%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (min-width: 1000px) {*/
-/*    .product-wrap {*/
-/*        width: 25%;*/
-/*    }*/
-/*}*/
-
-
 .product-wrap{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    margin:auto;
+    margin-top: 20px;
 }
 
 .product-wrap .wrap{
@@ -550,15 +529,28 @@ input[type=text],input[type=password],input[type=email]{
 
 .menu{
     cursor: pointer;
+    background-color: #40393b;
+    width: 110px;
+    color: #fcf8f3;
 }
 
 .sub-menu{
     display: none;
 }
+.sub-menu a:link{
+    color: #fcf8f3;
+}
+
+.sub-menu a:visited{
+    color: #fcf8f3;
+}
 
 .active{
     display: block;
 
+}
+.button-categoy{
+    text-transform: uppercase;
 }
 
 

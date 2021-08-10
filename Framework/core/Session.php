@@ -55,8 +55,7 @@ class Session
     public function destroy(): void
     {
         if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-            session_destroy();
+            header("Location: /login");
         } else {
             session_destroy();
         }

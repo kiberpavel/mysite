@@ -48,6 +48,11 @@ return [
         'action' => 'catalog',
     ],
     [
+        'url' => 'logout',
+        'controller' => 'login',
+        'action' => 'logout',
+    ],
+    [
         'url' => 'login',
         'controller' => 'login',
         'action' => 'login',
