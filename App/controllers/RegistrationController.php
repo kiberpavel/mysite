@@ -32,7 +32,7 @@ class RegistrationController extends Controller
 
             $errors = false;
 
-            $password = md5($password . "skajhagkbgw");
+            $password = password_hash($password, PASSWORD_BCRYPT);
 
 //            if (!RegistrationModel::checkName($name)) {
 //                $errors[] = 'Неправильное имя';
@@ -64,7 +64,8 @@ class RegistrationController extends Controller
 //        $check = RegistrationModel::checkType();
 
 
-        $params = ['title' => "Регистрация",'errors' => $errors,'result' => $result,  'user' => $this->userInfo, 'person'=>$this->person];
+        $params = ['title' => "Регистрация",'errors' => $errors,'result' => $result,
+            'user' => $this->userInfo, 'person' => $this->person];
         $this->view->render('registration', $params);
         return true;
     }
