@@ -3,7 +3,9 @@
 namespace Controllers;
 
 use Core\Controller;
+use Core\Session;
 use Db\Database;
+use Models\BasketModel;
 use Models\Items;
 
 class CatalogController extends Controller
@@ -20,7 +22,8 @@ class CatalogController extends Controller
     {
         $categoryList = $this->items->getCategory();
         $params = ['itemList' => $this->items->selectAll(),
-            'categoryList' => $categoryList, 'title' => "Каталог", 'person' => $this->person, 'user' => $this->userInfo];
+            'categoryList' => $categoryList, 'title' => "Каталог",
+            'person' => $this->person, 'user' => $this->userInfo, 'count' => $this->count ];
         $this->view->render('catalog', $params);
     }
     public function actionCategory()
@@ -30,7 +33,8 @@ class CatalogController extends Controller
         $category = ucfirst(end($arrUrl));
         $link = strtolower($category);
         $params = ['itemList' => $this->items->findByCategory($category), 'title' => "Каталог",'link' => $link,
-            'categoryList' => $categoryList, 'person' => $this->person, 'user' => $this->userInfo];
+            'categoryList' => $categoryList, 'person' => $this->person, 'user' => $this->userInfo,
+            'count' => $this->count ];
         $this->view->render('catalog', $params);
     }
 }

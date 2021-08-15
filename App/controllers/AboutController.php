@@ -5,6 +5,7 @@ namespace Controllers;
 use Core\Controller;
 use Core\View;
 use Db\Database;
+use Models\BasketModel;
 use Models\Items;
 
 class AboutController extends Controller
@@ -23,6 +24,10 @@ class AboutController extends Controller
         $id = (int)end($arrUrl);
         $item = $this->items->findById($id);
         extract($item, EXTR_OVERWRITE);
+
+        $newArrUrl = explode('/', $_SERVER['REQUEST_URI']);
+        $idProduct = (int)end($newArrUrl);
+       
         $params = ['title' => "О товаре",
             'id' => $id,
             'name' => $name,
@@ -32,8 +37,20 @@ class AboutController extends Controller
             'brend' => $brend,
             'price' => $price,
             'person' => $this->person,
-            'user' => $this->userInfo
+            'user' => $this->userInfo,
+            'idProduct' => $idProduct,
+            'count' => $this->count ,
             ];
+
         $this->view->render('about', $params);
+    }
+
+    public function actionAdd()
+    {
+        $newArrUrl = explode('/', $_SERVER['REQUEST_URI']);
+        $idProduct = (int)end($newArrUrl);
+        $product = new BasketModel();
+        $product->addProduct($idProduct);
+        header('Location: /catalog');
     }
 }
