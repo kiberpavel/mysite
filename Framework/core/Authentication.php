@@ -7,9 +7,7 @@ class Authentication
     public $login;
     public $auth;
 
-    public function __construct()
-    {
-    }
+
 
     public function isAuth(): bool
     {
@@ -17,7 +15,6 @@ class Authentication
             return true;
         } else {
             return false;
-//            header("Location: /login");
         }
     }
 
