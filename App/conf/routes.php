@@ -58,6 +58,12 @@ return [
         'action' => 'login',
     ],
     [
+        'url' => 'basket/add/([0-9]+)',
+        'controller' => 'about',
+        'action' => 'add',
+        'uniquePage' => true
+    ],
+    [
         'url' => 'basket',
         'controller' => 'basket',
         'action' => 'basket',
