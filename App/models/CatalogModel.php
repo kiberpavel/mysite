@@ -1,19 +1,25 @@
 <?php
+
 namespace Models;
+
 use Core\Model;
-class CatalogModel extends Model{
+
+class CatalogModel extends Model
+{
     public $products;
     public $product;
-    
+
     public function __construct($products)
     {
         $this->products = $products;
     }
-    
-    public function getProducts() {
+
+    public function getProducts()
+    {
         return $this->products;
     }
-    public function getProduct(int $id) {
+    public function getProduct(int $id)
+    {
         foreach ($this->products as $product) {
             if ($product['id'] == $id) {
                 $this->product = $product;
@@ -22,5 +28,4 @@ class CatalogModel extends Model{
         }
         return $this->product;
     }
-
 }
