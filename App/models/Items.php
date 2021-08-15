@@ -30,7 +30,7 @@ class Items extends Model
         return $this->items;
     }
 
-    public function findById(int $id)
+    public function findById($id)
     {
         $sth = self::$db->prepare("SELECT * FROM Items INNER JOIN Category on Items.id_category=Category.id WHERE Items.id = :id");
         $sth->bindParam(':id', $id);
@@ -52,5 +52,24 @@ class Items extends Model
         $sth->execute();
         $this->items = $sth->fetchAll();
         return $this->items;
+    }
+
+    public function getProductsByIds($idsArray)
+    {
+        $products = array();
+        $idsString = implode('.', $idsArray);
+        $sth = self::$db->prepare("SELECT * FROM Items INNER JOIN Category on Items.id_category=Category.id  WHERE Items.id IN '$idsString' ");
+        $sth->setFetchMode(PDO::FETCH_ASSOC);
+        $sth->execute();
+
+        $i = 0;
+        while ($row = $sth->fetch()) {
+            $products[$i]['id'] = $row['id'];
+            $products[$i]['photo'] = $row['photo'];
+            $products[$i]['name'] = $row['name'];
+            $products[$i]['price'] = $row['price'];
+            $i++;
+        }
+        return $products;
     }
 }
