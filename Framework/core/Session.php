@@ -71,11 +71,14 @@ class Session
         $_SESSION[$key] = $value;
     }
 
-    public function get($key)
+    public function get($key, $array = '')
     {
-        if (isset($_SESSION[$key])) {
-            return $_SESSION[$key];
+        if ($array === '') {
+            $result = $_SESSION[$key];
+        } else {
+            $result = $_SESSION[$array][$key];
         }
+        return $result;
     }
 
     public function contains($key): bool
