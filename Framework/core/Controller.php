@@ -9,7 +9,6 @@ use Models\User;
 class Controller
 {
     public $user;
-    public $items;
     public $model;
     public $view;
     public $userInfo;
@@ -32,10 +31,10 @@ class Controller
         $this->ses = new Session();
         if (!$this->person) {
             $this->userId = $userInf['id'];
-            $this->userInfo = $this->user->findById( $this->userId);
+            $this->userInfo = $this->user->findById($this->userId);
             $this->count = $this->ses->get('count', 'products') ?? 0;
         }
-        
+
 //        $b =$this->autentif->getUser();
 //        var_dump($_SESSION['products']);
 //        exit();
