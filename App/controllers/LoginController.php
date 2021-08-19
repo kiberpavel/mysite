@@ -3,58 +3,32 @@
 namespace Controllers;
 
 use Core\Controller;
-use Db\Database;
 use Models\LoginModel;
-use Models\RegistrationModel;
-use Models\User;
-use Core\Authentication;
 
 class LoginController extends Controller
 {
+    public LoginModel $login;
     public function __construct()
     {
         parent::__construct();
-        $db = Database::getConnection();
-        $this->user = new User();
-        $this->user->setDb($db);
-        $this->autentif = new Authentication();
+        $this->login = new LoginModel();
     }
 
     public function actionLogin()
     {
-        $login = '';
-        $password = '';
-
-        if (isset($_POST['submit'])) {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
-
-            $errors = false;
-
-            $password = md5($password . "skajhagkbgw");
-
-//            if (RegistrationModel::checkLogin($login)) {
-//                {
-//                    $errors[] = 'Неправильный логин';
-//                }
-//            }
-//
-//            if (RegistrationModel::checkPassword($password)) {
-//                $errors[] = 'Неккоректны пароль';
-//            }
-
-            $userId = $this->user->getUserData($login, $password);
-            if ($userId == false) {
-                $errors[] = "Неправильно введенные данные для входа";
-            } else {
-                $this->autentif->auth($userId);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            extract($_POST);
+            if ($this->login->login($login, $password)) {
                 header("Location: /cabinet");
             }
         }
-//        var_dump($this->user->checkUserData('pablo','1000'));
-        $params = ['title' => 'Авторизация','errors' => $errors, 'person' => $this->person,];
+        $params = [
+            'title' => 'Авторизация',
+            'errors' => $errors,
+            'person' => $this->person,
+            'count' => $this->count
+        ];
         $this->view->render('login', $params);
-        return true;
     }
 
     public function actionLogout()

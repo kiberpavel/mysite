@@ -21,7 +21,7 @@ class User extends Model
         $this->user = $sth;
         return $this->user;
     }
-
+    
     public function getUserData($login, $password)
     {
         $sth = self::$db->prepare("SELECT * FROM Users WHERE login = :login AND password = :password");

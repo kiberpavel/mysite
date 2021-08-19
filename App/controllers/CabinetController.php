@@ -20,13 +20,12 @@ class CabinetController extends Controller
             header("Location: /login");
         }
         $password = $_POST['password'];
-        $password = md5($password . "skajhagkbgw");
+        $password = password_hash($password, PASSWORD_BCRYPT);
         $params = ['title' => 'Личный кабинет',
             'person' => $this->person, 'user' => $this->userInfo,
-            'edit' => $this->user->updatePassword($password, $this->userInfo['login'])];
+            'edit' => $this->user->updatePassword($password, $this->userInfo['login']),
+            'count' => $this->count ];
         $this->view->render('cabinet', $params);
-//        $ses = new Session();
-//        var_dump($ses->getId());
 
         return true;
     }

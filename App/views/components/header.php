@@ -21,10 +21,12 @@
       </div>
     </li>
           <?php if ($person) :?>
-    <li> <a href="/login">Авторизация</a> </li>
+                  <li> <a href="/login">Авторизация</a> </li>
+                  <li> <a href="/basket">Корзина</a> </li>
           <?php else : ?>
           <li> <a href="/cabinet"><?= $user['login']?></a> </li>
+                  <li> <a href="/basket">Корзина(<?= $count ?>)</a> </li>
           <?php endif;?>
-          <li> <a href="/basket">Корзина</a> </li>
+          
   </ul>
 </header>

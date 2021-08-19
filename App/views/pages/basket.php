@@ -1,5 +1,6 @@
 <main>
-		<p class="title-name">Корзина</p>
+        <p class="title-name">Корзина</p>
+    <?php if ($productsInCart) : ?>
   <section class="basket-decor">
     <div class="basket-main" >
       <div >
@@ -18,48 +19,38 @@
         <p>Удалить</p>
       </div>
     </div>
+          <?php foreach ($cart as $product) : ?>
+                  <?php extract($product, EXTR_OVERWRITE); ?>
     <div class="basket-info" >
       <div >
-        <p>1</p>
+        <p><?= $product['id'] ?></p>
       </div>
       <div class="basket-info__image">
-        <p><img src="../../../public/image/lamp-smal.jpg" alt="Товар"></p>
+        <p><img src="/public/image/<?= $photo ?>" alt="Товар"></p>
       </div>
       <div>
-        <p>Лампа</p>
+        <p><?= $product['name'] ?></p>
       </div>
       <div>
-        <p>1500</p>
+        <p><?= $product['price'] ?></p>
       </div>
       <div >
         <p><img src="../../../public/image/cancel%201.svg" alt="Удалить"></p>
       </div>
     </div>
-    <div class="basket-info" >
-      <div >
-        <p>2</p>
-      </div>
-      <div class="basket-info__image">
-        <p><img src="../../../public/image/bra.jpg" alt="Товар"></p>
-      </div>
-      <div>
-        <p>Бра</p>
-      </div>
-      <div>
-        <p>100</p>
-      </div>
-      <div>
-        <p><img src="../../../public/image/cancel%201.svg" alt="Удалить"></p>
-      </div>
-    </div>
+          <?php endforeach;?>
   </section>
   <section class="basket-result">
     <div class="basket-pay" >
       <div>
-        <p>Итого:1600</p>
-        <button>Купить</button>
+        <p>Итого:<?= $total ?></p>
+              <form method="post">
+        <button type="submit" name="submit">Купить</button>
+              </form>
       </div>
-    
     </div>
   </section>
+    <?php else : ?>
+                <p>Корзина пустая</p>
+    <?php endif;?>
 </main>

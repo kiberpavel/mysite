@@ -27,12 +27,9 @@ class RegistrationController extends Controller
             $name = $_POST['name'];
             $second_name = $_POST['second_name'];
             $login = $_POST['login'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
             $email = $_POST['email'];
-
             $errors = false;
-
-            $password = md5($password . "skajhagkbgw");
 
 //            if (!RegistrationModel::checkName($name)) {
 //                $errors[] = 'Неправильное имя';
@@ -64,7 +61,8 @@ class RegistrationController extends Controller
 //        $check = RegistrationModel::checkType();
 
 
-        $params = ['title' => "Регистрация",'errors' => $errors,'result' => $result,  'user' => $this->userInfo, 'person'=>$this->person];
+        $params = ['title' => "Регистрация",'errors' => $errors,'result' => $result,
+            'user' => $this->userInfo, 'person' => $this->person];
         $this->view->render('registration', $params);
         return true;
     }
