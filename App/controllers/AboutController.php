@@ -10,6 +10,7 @@ use Models\Items;
 
 class AboutController extends Controller
 {
+    public Items $items;
     public function __construct()
     {
         parent::__construct();
