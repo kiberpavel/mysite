@@ -74,9 +74,9 @@ class Session
     public function get($key, $array = '')
     {
         if ($array === '') {
-            $result = $_SESSION[$key];
+            $result = $_SESSION[$key] ?? '';
         } else {
-            $result = $_SESSION[$array][$key];
+            $result = $_SESSION[$array][$key] ?? '';
         }
         return $result;
     }
