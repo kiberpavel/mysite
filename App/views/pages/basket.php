@@ -44,7 +44,7 @@
     <div class="basket-pay" >
       <div>
         <p>Итого:<?= $total ?></p>
-              <form action="#" method="post">
+              <form method="post">
         <button type="submit" name="submit">Купить</button>
               </form>
       </div>
