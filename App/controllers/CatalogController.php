@@ -23,26 +23,24 @@ class CatalogController extends Controller
     {
         $categoryList = $this->items->getCategories();
         $params = [
-            'itemList' => $this->items->selectAll(),
             'categoryList' => $categoryList,
             'title' => "Каталог",
             'person' => $this->person,
             'user' => $this->userInfo,
             'count' => $this->count
             ];
-//        var_dump($this->items->selectAll());
-//        exit();
         $this->view->render('catalog', $params);
     }
     public function actionCategory()
     {
         $categoryList = $this->items->getCategories();
-        $arrUrl = explode('/', $_SERVER['REQUEST_URI']);
-        $category = ucfirst(end($arrUrl));
-        $link = strtolower($category);
-        $params = [ 'title' => "Каталог",'link' => $link,
-            'categoryList' => $categoryList, 'person' => $this->person, 'user' => $this->userInfo,
-            'count' => $this->count ];
-        $this->view->render('catalog', $params);
+        $params = [
+            'title' => "Каталог",
+            'categoryList' => $categoryList,
+            'person' => $this->person,
+            'user' => $this->userInfo,
+            'count' => $this->count
+        ];
+        $this->view->render('categories', $params);
     }
 }
