@@ -5,10 +5,12 @@
                   <li class="menu-item">
                           <p class="button-categoy">Разделы</p>
                           <ul class="sub-menu">
-                              <?php foreach ($categoryList as $category) : ?>
-                                  <?php extract($category, EXTR_OVERWRITE); ?>
-                                  <li><a href="/catalog/<?=strtolower($name) ?>"><?= $name ?></a></li>
-                              <?php endforeach; ?>
+                              <?php if (isset($categoryList) && isset($name)) : ?>
+                                  <?php foreach ($categoryList as $category) : ?>
+                                        <?php extract($category, EXTR_OVERWRITE); ?>
+                                            <li><a href="/catalog/<?=strtolower($name) ?>"><?= $name ?></a></li>
+                                  <?php endforeach; ?>
+                              <?php endif; ?>
                           </ul>
                   </li>
           </ul>
