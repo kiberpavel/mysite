@@ -9,6 +9,7 @@ use Models\Orders;
 
 class BasketController extends Controller
 {
+    public Items $items;
     public function __construct()
     {
         parent::__construct();
@@ -22,32 +23,26 @@ class BasketController extends Controller
     {
         $productsInCart = false;
         $productsInCart = $this->basket->getProductsId();
-//        $cart = array();
-//        $total = '';
         if (!empty($productsInCart)) {
-            foreach ($productsInCart as $product) :
+            foreach ($productsInCart as $product) {
                 $cart[] = $this->items->findById($product);
-            endforeach;
+            }
             $total = $this->basket->totalPrice($cart, 'price');
         }
-//            var_dump($total);
-//        exit();
-//        var_dump($cart);
-//        exit();
-//        $id_item = array_column($cart, 'id');
-//        var_dump($id_item);
-//        exit();
-
-        $id_user = $this->userId;
-
-//
-        if (isset($_POST['submit'])) {
+    
+    
+    
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id_user = $this->userId;
+            $id_item = array_column($cart, 'id');
             if (isset($_SESSION['products'])) {
-                $this->order->insertOrder($id_user, $id_item);
+                foreach ($id_item as $id) {
+                    $id = (int) $id;
+                    $this->order->insertOrder($id_user, $id);
+                }
                 $this->basket->clear();
-            } else {
-                header("Location: /catalog");
             }
+            header("Location: /catalog");
         }
 
         $params = ['title' => 'Корзина',  'person' => $this->person, 'user' => $this->userInfo,
