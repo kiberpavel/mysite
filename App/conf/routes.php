@@ -1,19 +1,15 @@
 <?php
-//return array(
-//    'index' =>'index/index',
-//    'catalog' =>'catalog/catalog',
-//    'about' =>'about/about',
-//    'login' =>'login/login',
-//    'basket' =>'basket/basket',
-//    'cabinet'=>'cabinet/cabinet',
-//    'registration'=>'registration/reg',
-//);
 
 return [
     [
         'url' => '',
         'controller' => 'index',
         'action' => 'index',
+    ],
+    [
+        'url' => 'api/categories',
+        'controller' => 'api',
+        'action' => 'search',
     ],
     [
         'url' => 'search/([0-9A-z_]+)',
