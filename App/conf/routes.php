@@ -7,9 +7,29 @@ return [
         'action' => 'index',
     ],
     [
-        'url' => 'api/categories',
+        'url' => 'api/catalog',
         'controller' => 'api',
-        'action' => 'search',
+        'action' => 'catalog',
+    ],
+    [
+        'url' => 'api/lamp',
+        'controller' => 'api',
+        'action' => 'categories',
+    ],
+    [
+        'url' => 'api/torsher',
+        'controller' => 'api',
+        'action' => 'categories'
+    ],
+    [
+        'url' => 'api/bra',
+        'controller' => 'api',
+        'action' => 'categories'
+    ],
+    [
+        'url' => 'api/flourlamp',
+        'controller' => 'api',
+        'action' => 'categories'
     ],
     [
         'url' => 'search/([0-9A-z_]+)',
