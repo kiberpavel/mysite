@@ -40,10 +40,10 @@ class Items extends Model
     }
     public function findByCategory(string $name)
     {
-        $sth = self::$db->prepare("SELECT * FROM Items INNER JOIN Category on Items.id_category=Category.id_category WHERE Category.name = :name");
+        $sth = self::$db->prepare("SELECT * FROM Items INNER JOIN Category on Items.id_category=Category.id WHERE Category.name = :name");
         $sth->bindParam(':name', $name);
         $sth->execute();
-        $this->items = $sth->fetchAll();
+        $this->items = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $this->items;
     }
     public function getCategories()
