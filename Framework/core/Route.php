@@ -53,11 +53,6 @@ class Route
         }
     }
 
-    private function error404()
-    {
-        header("Location: /404");
-    }
-
     private function load($controller, $action)
     {
         $controllerName = 'Controllers\\' . ucfirst($controller . 'Controller');

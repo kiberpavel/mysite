@@ -4,8 +4,10 @@ namespace Controllers;
 
 use Core\Controller;
 use Db\Database;
+use Models\BasketModel;
 use Models\Items;
 use Models\Orders;
+use Models\User;
 
 class BasketController extends Controller
 {
@@ -13,32 +15,32 @@ class BasketController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $db = Database::getConnection();
-        $this->items = new Items();
-        $this->items->setDb($db);
-        $this->order = new Orders();
     }
 
     public function actionBasket()
     {
+        $newArrUrl = explode('/', $_SERVER['REQUEST_URI']);
+        $idProduct = (int)end($newArrUrl);
+
         $productsInCart = false;
         $productsInCart = $this->basket->getProductsId();
         if (!empty($productsInCart)) {
             foreach ($productsInCart as $product) {
-                $cart[] = $this->items->findById($product);
+                $list = Items::findByIdItems($product);
+                $cart[] = Items::convert($list);
             }
             $total = $this->basket->totalPrice($cart, 'price');
         }
-    
-    
-    
+
+
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id_user = $this->userId;
             $id_item = array_column($cart, 'id');
             if (isset($_SESSION['products'])) {
                 foreach ($id_item as $id) {
                     $id = (int) $id;
-                    $this->order->insertOrder($id_user, $id);
+                    $order = Orders::insert($id_user, $id);
                 }
                 $this->basket->clear();
             }
@@ -46,7 +48,24 @@ class BasketController extends Controller
         }
 
         $params = ['title' => 'Корзина',  'person' => $this->person, 'user' => $this->userInfo,
-            'count' => $this->count,'productsInCart' => $productsInCart ,'cart' => $cart,'total' => $total];
+            'count' => $this->count,'productsInCart' => $productsInCart ,'cart' => $cart,'total' => $total,
+            'idProduct' => $idProduct];
         $this->view->render('basket', $params);
+    }
+
+    public function actionDelete()
+    {
+        $arrUrl = explode('/', $_SERVER['REQUEST_URI']);
+        $id = (int)end($arrUrl);
+        $list = Items::findByIdItems($id);
+        $item = Items::convert($list);
+//        var_dump($item);
+//        exit();
+        $product = new BasketModel();
+        $product->deleteProducts($id);
+//        var_dump($product);
+//        exit();
+
+        header("Location: /basket");
     }
 }

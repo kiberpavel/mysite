@@ -5,10 +5,10 @@
 						<p class="cabinet-name">Данные</p>
 						<form>
 								<div class="input-wrap">
-										<p class="cabinet-text"><?= $user['first_name']?></p>
+										<p class="cabinet-text"><?= $user['firstName']?></p>
 								</div>
 								<div class="input-wrap">
-										<p class="cabinet-text"><?= $user['second_name']?></p>
+										<p class="cabinet-text"><?= $user['secondName']?></p>
 								</div>
 								<div class="input-wrap">
 										<p class="cabinet-text"><?= $user['login']?></p>

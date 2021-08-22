@@ -19,16 +19,23 @@
 
 </main>
 <script>
+    function getCategory() {
+        let temp = window.location.href.split('/');
+        return temp[temp.length - 1];
+    }
 
-async function getInfo(url) {
-    const response = await fetch(url);
-    return await response.json();
-}
-function outputProducts(data, elem) {
-    let html = '';
-    document.querySelector(elem).innerHTML = '';
-    for (let i = 0; i < data.length; i++) {
-        html = `
+    let category = getCategory();
+    
+    async function getInfo(url) {
+        const response = await fetch(url);
+        return await response.json();
+    }
+
+    function outputProducts(data, elem) {
+        let html = '';
+        document.querySelector(elem).innerHTML = '';
+        for (let i = 0; i < data.length; i++) {
+            html = `
                           <a class="wrap" href="/about/${data[i].id}">
                                   <div class="img-catalog">
                                       <img src="/public/image/${data[i].photo}" alt="Товар" width="315" height="200">
@@ -41,12 +48,12 @@ function outputProducts(data, elem) {
                           </a>
                           
                         `;
-        document.querySelector(elem).innerHTML += html.trim();
+            document.querySelector(elem).innerHTML += html.trim();
+        }
     }
-}
-
-getInfo(`api/catalog`)
-    .then((data) => outputProducts(data, '.product-wrap'))
-    .catch(err => console.log(err))
+    
+    getInfo(`/api/${category}`)
+        .then((data) => outputProducts(data, '.product-wrap'))
+        .catch(err => console.log(err))
 
 </script>

@@ -29,7 +29,7 @@
                 </section>
         </section>
         <section>
-            <?php if ($result) : ?>
+            <?php if (!empty($result)) : ?>
                 <p>Вы успешно зарегестрированы!</p>
             <?php else : ?>
                     <?php if (isset($errors) && is_array($errors)) : ?>

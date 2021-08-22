@@ -7,9 +7,29 @@ return [
         'action' => 'index',
     ],
     [
-        'url' => 'api/categories',
+        'url' => 'api/catalog',
         'controller' => 'api',
-        'action' => 'search',
+        'action' => 'catalog',
+    ],
+    [
+        'url' => 'api/lamp',
+        'controller' => 'api',
+        'action' => 'categories',
+    ],
+    [
+        'url' => 'api/torsher',
+        'controller' => 'api',
+        'action' => 'categories'
+    ],
+    [
+        'url' => 'api/bra',
+        'controller' => 'api',
+        'action' => 'categories'
+    ],
+    [
+        'url' => 'api/flourlamp',
+        'controller' => 'api',
+        'action' => 'categories'
     ],
     [
         'url' => 'search/([0-9A-z_]+)',
@@ -60,6 +80,12 @@ return [
         'uniquePage' => true
     ],
     [
+        'url' => 'basket/delete/([0-9]+)',
+        'controller' => 'basket',
+        'action' => 'delete',
+        'uniquePage' => true
+    ],
+    [
         'url' => 'basket',
         'controller' => 'basket',
         'action' => 'basket',
@@ -86,11 +112,8 @@ return [
         'uniquePage' => true
     ],
     [
-        'url' => '([0-9A-z_]+)',
-        'controller' => 'main',
-        'action' => '404',
-        'uniquePage' => true
+        'url' => 'admin',
+        'controller' => 'admin',
+        'action' => 'admin',
     ],
-
-
 ];

@@ -18,14 +18,14 @@ class BasketModel extends Model
     public function getProducts()
     {
         if (isset($_SESSION['products'])) {
-            return $_SESSION['products']['id'];
+            return $_SESSION['products'];
         }
         return false;
     }
     public function getProductsId()
     {
         if (isset($_SESSION['products'])) {
-            return $_SESSION['products']['id'];
+            return $_SESSION['products']['id'] ?? 0;
         }
         return false;
     }
@@ -52,5 +52,12 @@ class BasketModel extends Model
             $session = new Session();
             $session->delete('products');
         }
-        }
+    }
+    public function deleteProducts($id)
+    {
+        $productsInCart = $this->getProducts();
+        unset($productsInCart[$id]);
+
+        $_SESSION['products'] = $productsInCart;
+    }
 }

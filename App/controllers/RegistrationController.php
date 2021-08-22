@@ -16,6 +16,10 @@ class RegistrationController extends Controller
 
     public function actionReg()
     {
+    
+        if (!$this->person) {
+            header("Location: /cabinet");
+        }
         $name = '';
         $second_name = '';
         $login = '';
@@ -54,15 +58,11 @@ class RegistrationController extends Controller
 //            }
 
             if ($errors == false) {
-                $result = $this->user->register($name, $second_name, $login, $password, $email);
+                $result = User::insert($name, $second_name, $login, $password, $email);
             }
         }
-
-//        $check = RegistrationModel::checkType();
-
-
         $params = ['title' => "Регистрация",'errors' => $errors,'result' => $result,
-            'user' => $this->userInfo, 'person' => $this->person];
+            'user' => $this->userInfo, 'person' => $this->person,];
         $this->view->render('registration', $params);
         return true;
     }
