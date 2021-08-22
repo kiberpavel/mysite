@@ -6,7 +6,7 @@
             "Core\\": "Framework/core/",
             "Models\\": "App/models/",
             "Controllers\\": "App/controllers/",
-            "Db\\": "App/conf/"
+            "Db\\": "App/Services/"
         }
     },
     "authors": [
