@@ -6,6 +6,7 @@ use Core\Controller;
 use Core\Session;
 use Db\Database;
 use Models\BasketModel;
+use Models\Category;
 use Models\Items;
 
 class CatalogController extends Controller
@@ -14,14 +15,12 @@ class CatalogController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $db = Database::getConnection();
-        $this->items = new Items();
-        $this->items->setDb($db);
     }
 
     public function actionCatalog()
     {
-        $categoryList = $this->items->getCategories();
+        $list = Category::selectAll();
+        $categoryList = Category::convert($list);
         $params = [
             'categoryList' => $categoryList,
             'title' => "Каталог",
@@ -33,7 +32,8 @@ class CatalogController extends Controller
     }
     public function actionCategory()
     {
-        $categoryList = $this->items->getCategories();
+        $list = Category::selectAll();
+        $categoryList = Category::convert($list);
         $params = [
             'title' => "Каталог",
             'categoryList' => $categoryList,

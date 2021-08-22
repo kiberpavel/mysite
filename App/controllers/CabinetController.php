@@ -13,17 +13,20 @@ class CabinetController extends Controller
     {
         parent::__construct();
     }
-
     public function actionCabinet()
     {
         if ($this->person) {
             header("Location: /login");
         }
-        $password = $_POST['password'];
-        $password = password_hash($password, PASSWORD_BCRYPT);
+    
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $password =  md5($_POST['password']) ?? 0;
+            $id = $this->userInfo['id'];
+            User::updatePassword($password, $id);
+        }
+      
         $params = ['title' => 'Личный кабинет',
             'person' => $this->person, 'user' => $this->userInfo,
-            'edit' => $this->user->updatePassword($password, $this->userInfo['login']),
             'count' => $this->count ];
         $this->view->render('cabinet', $params);
 

@@ -14,21 +14,18 @@ class AboutController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $db = Database::getConnection();
-        $this->items = new Items();
-        $this->items->setDb($db);
     }
 
     public function actionAbout()
     {
         $arrUrl = explode('/', $_SERVER['REQUEST_URI']);
         $id = (int)end($arrUrl);
-        $item = $this->items->findById($id);
+        $list = Items::findByIdItems($id);
+        $item = Items::convert($list);
         extract($item, EXTR_OVERWRITE);
-
         $newArrUrl = explode('/', $_SERVER['REQUEST_URI']);
         $idProduct = (int)end($newArrUrl);
-       
+
         $params = ['title' => "О товаре",
             'id' => $id,
             'name' => $name,

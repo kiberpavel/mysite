@@ -16,6 +16,10 @@ class LoginController extends Controller
 
     public function actionLogin()
     {
+        if (!$this->person) {
+            header("Location: /cabinet");
+        }
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             extract($_POST);
             if ($this->login->login($login, $password)) {
@@ -26,7 +30,7 @@ class LoginController extends Controller
             'title' => 'Авторизация',
             'errors' => $errors,
             'person' => $this->person,
-            'count' => $this->count
+            'count' => $this->count,
         ];
         $this->view->render('login', $params);
     }
