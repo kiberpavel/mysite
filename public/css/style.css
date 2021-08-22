@@ -314,6 +314,7 @@ li .logo{
     padding-top: 100px;
     padding-bottom: 190px;
     align-items: center;
+    min-height: 575px;
 }
 
 .main-autoriz .main-title{
@@ -549,9 +550,30 @@ input[type=text],input[type=password],input[type=email]{
     display: block;
 
 }
+
 .button-categoy{
     text-transform: uppercase;
 }
+
+.admin-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 190px;
+    align-items: center;
+    min-height: 575px;
+    padding-left: 118px;
+    padding-right: 118px;
+}
+
+.admin-info p{
+    padding-bottom: 20px;
+}
+
+.admin-info a{
+    padding-bottom: 20px;
+}
+
 
 
 
