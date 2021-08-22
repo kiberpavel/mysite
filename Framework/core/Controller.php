@@ -20,23 +20,21 @@ class Controller
 
     public function __construct()
     {
-        $db = Database::getConnection();
-        $this->user = new User();
-        $this->user->setDb($db);
+//        $db = Database::getConnection();
+//        $this->user->setDb($db);
         $this->autentif = new Authentication();
         $this->view = new View();
         $userInf = $this->autentif->getUser();
         $this->person = $this->autentif->isGuest();
         $this->basket = new BasketModel();
         $this->ses = new Session();
+
         if (!$this->person) {
-            $this->userId = $userInf['id'];
-            $this->userInfo = $this->user->findById($this->userId);
+            $userInf = $this->autentif->getUser();
+            $this->userId = $userInf->getId();
+            $link = User::getById($this->userId);
+            $this->userInfo = User::convert($link);
             $this->count = $this->ses->get('count', 'products') ?? 0;
         }
-
-//        $b =$this->autentif->getUser();
-//        var_dump($_SESSION['products']);
-//        exit();
     }
 }
