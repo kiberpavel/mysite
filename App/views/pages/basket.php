@@ -35,7 +35,7 @@
         <p><?= $product['price'] ?></p>
       </div>
       <div >
-        <p><img src="../../../public/image/cancel%201.svg" alt="Удалить"></p>
+        <p><a href="basket/delete/<?= $product['id'] ?>"><img src="../../../public/image/cancel%201.svg" alt="Удалить"></a></p>
       </div>
     </div>
           <?php endforeach;?>
