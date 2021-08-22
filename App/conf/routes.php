@@ -80,6 +80,12 @@ return [
         'uniquePage' => true
     ],
     [
+        'url' => 'basket/delete/([0-9]+)',
+        'controller' => 'basket',
+        'action' => 'delete',
+        'uniquePage' => true
+    ],
+    [
         'url' => 'basket',
         'controller' => 'basket',
         'action' => 'basket',
@@ -106,11 +112,8 @@ return [
         'uniquePage' => true
     ],
     [
-        'url' => '([0-9A-z_]+)',
-        'controller' => 'main',
-        'action' => '404',
-        'uniquePage' => true
+        'url' => 'admin',
+        'controller' => 'admin',
+        'action' => 'admin',
     ],
-
-
 ];
