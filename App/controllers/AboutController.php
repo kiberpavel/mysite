@@ -38,6 +38,7 @@ class AboutController extends Controller
             'user' => $this->userInfo,
             'idProduct' => $idProduct,
             'count' => $this->count ,
+            'admin' => $this->admin
             ];
 
         $this->view->render('about', $params);

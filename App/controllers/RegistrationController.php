@@ -62,7 +62,7 @@ class RegistrationController extends Controller
             }
         }
         $params = ['title' => "Регистрация",'errors' => $errors,'result' => $result,
-            'user' => $this->userInfo, 'person' => $this->person,];
+            'user' => $this->userInfo, 'person' => $this->person,'admin' => $this->admin];
         $this->view->render('registration', $params);
         return true;
     }

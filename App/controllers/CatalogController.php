@@ -26,7 +26,8 @@ class CatalogController extends Controller
             'title' => "Каталог",
             'person' => $this->person,
             'user' => $this->userInfo,
-            'count' => $this->count
+            'count' => $this->count,
+            'admin' => $this->admin
             ];
         $this->view->render('catalog', $params);
     }
@@ -39,7 +40,8 @@ class CatalogController extends Controller
             'categoryList' => $categoryList,
             'person' => $this->person,
             'user' => $this->userInfo,
-            'count' => $this->count
+            'count' => $this->count,
+            'admin' => $this->admin
         ];
         $this->view->render('categories', $params);
     }
