@@ -17,18 +17,17 @@ class Controller
     public $basket;
     public $count;
     public $order;
+    public $admin;
 
     public function __construct()
     {
-//        $db = Database::getConnection();
-//        $this->user->setDb($db);
         $this->autentif = new Authentication();
         $this->view = new View();
         $userInf = $this->autentif->getUser();
         $this->person = $this->autentif->isGuest();
         $this->basket = new BasketModel();
         $this->ses = new Session();
-
+        $this->admin = AdminBase::checkAdmin();
         if (!$this->person) {
             $userInf = $this->autentif->getUser();
             $this->userId = $userInf->getId();
