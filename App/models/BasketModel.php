@@ -3,7 +3,6 @@
 namespace Models;
 
 use Core\Model;
-
 use Core\Session;
 
 class BasketModel extends Model
@@ -37,13 +36,19 @@ class BasketModel extends Model
         return false;
     }
 
-    public function totalPrice($array, $key)
+    public function totalPrice($array)
     {
+        $sum = 0;
         if (!empty($array)) {
-            $a = array_column($array, $key);
-            $b = array_sum($a);
+            foreach ($array as $item) {
+                $price = (int) $item['price'];
+                $count = (int) $item['countCart'];
+                for ($i = 0; $i < $count; $i++) {
+                    $sum += $price;
+                }
+            }
         }
-        return $b;
+        return $sum;
     }
 
     public function clear()
@@ -53,11 +58,25 @@ class BasketModel extends Model
             $session->delete('products');
         }
     }
+
+    public function array_fill_multi(array $input)
+    {
+        $result = array();
+
+        foreach ($input as $value => $count) {
+            while ($count-- > 0) {
+                $result[] = $value;
+            }
+        }
+
+        return $result;
+    }
     public function deleteProducts($id)
     {
-        $productsInCart = $this->getProducts();
+        $productsInCart = array_count_values($this->getProductsId());
         unset($productsInCart[$id]);
-
-        $_SESSION['products'] = $productsInCart;
+        $array = $this->array_fill_multi($productsInCart);
+        $_SESSION['products']['id'] = $array;
+        $_SESSION['products']['count'] = count($_SESSION['products']['id']);
     }
 }
