@@ -556,14 +556,22 @@ input[type=text],input[type=password],input[type=email]{
 }
 
 .admin-container{
-    display: flex;
-    justify-content: center;
     padding-top: 100px;
     padding-bottom: 190px;
-    align-items: center;
     min-height: 575px;
     padding-left: 118px;
     padding-right: 118px;
+}
+
+.admin-container p{
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.admin-container li{
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .admin-info p{
@@ -573,6 +581,52 @@ input[type=text],input[type=password],input[type=email]{
 .admin-info a{
     padding-bottom: 20px;
 }
+
+.item-admin{
+    width: 100%;
+}
+
+.item-admin ul{
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: #40393b;
+    list-style: none;
+}
+
+.item-admin .item-admin__model {
+    width: 300px;
+}
+
+.add-product{
+    background-color: antiquewhite;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-create{
+    list-style: none;
+}
+
+.admin-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding-left: 118px!important;
+    padding-right: 118px!important;
+}
+
+.admin-nav a{
+    text-decoration: none;
+    color: #98938f;
+}
+
 
 
 
