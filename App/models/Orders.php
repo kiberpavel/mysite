@@ -12,13 +12,13 @@ class Orders extends ActiveRecordEntity
     protected $idItem;
 
 
-    public static function insert($id_user, $id_item): ?self
+    public static function insert($id_user, $id_item, $count_items): ?self
     {
         $db = Database::getInstance();
         $entities = $db->query(
-            'INSERT INTO `' . static::getTableName() . '` (id_user,id_item)
-            VALUES (:id_user, :id_item)',
-            [':id_user' => $id_user,':id_item' => $id_item],
+            'INSERT INTO `' . static::getTableName() . '` (id_user,id_item,count_items)
+            VALUES (:id_user, :id_item,:count_items)',
+            [':id_user' => $id_user,':id_item' => $id_item,'count' => $count_items],
             User::class
         );
         return $entities ? $entities[0] : null;
