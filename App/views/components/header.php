@@ -11,7 +11,17 @@
 </head>
 <body>
 <header>
-  <ul class="nav">
+        <ul class="admin-nav">
+      <?php if ($admin) :?>
+        <div>
+		        <li> <a href="/admin">Админ-панель</a> </li>
+        </div>
+        <div>
+		        <li> <a href="/logout">На сайт</a> </li>
+        </div>
+      <?php else : ?>
+        </ul>
+        <ul class="nav">
     <li><a href="/">Главная</a></li>
     <li><a href="/catalog">Каталог</a></li>
     <li>
@@ -27,6 +37,7 @@
           <li> <a href="/cabinet"><?= $user['login']?></a> </li>
                   <li> <a href="/basket">Корзина(<?= $count ?>)</a> </li>
           <?php endif;?>
-          
+      <?php endif;?>
+      
   </ul>
 </header>
