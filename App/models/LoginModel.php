@@ -23,7 +23,6 @@ class LoginModel extends Model
         $errors = false;
 
         $userId = $this->user->getUserData($login, md5($password));
-
         if ($userId == false) {
             $errors[] = "Неправильно введенные данные для входа";
         } else {
