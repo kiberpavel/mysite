@@ -10,13 +10,6 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 
-//$log = new Logger('name');
-//$log->pushHandler(new StreamHandler('App/Log/log.log', Logger::WARNING));
-//
-//// add records to the log
-//$log->warning('Warning');
-//$log->error('Error');
-
 $start = new Session();
 $start->start();
 
