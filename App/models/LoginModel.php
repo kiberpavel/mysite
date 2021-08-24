@@ -17,17 +17,17 @@ class LoginModel extends Model
         $this->user = new User();
         $this->autentif = new Authentication();
     }
-    
+
     public function getErrors()
     {
         return $this->errors;
     }
-    
+
 
     public function login($login, $password)
     {
         $result = false;
-        
+
 
         $userId = $this->user->getUserData($login, md5($password));
         if ($userId == false) {
