@@ -138,4 +138,21 @@ return [
         'action' => 'delete',
         'uniquePage' => true
     ],
+    [
+        'url' => 'admin/orders',
+        'controller' => 'order',
+        'action' => 'index',
+    ],
+    [
+        'url' => 'admin/orders/delete/([0-9]+)',
+        'controller' => 'order',
+        'action' => 'delete',
+        'uniquePage' => true
+    ],
+    [
+        'url' => 'admin/orders/update/([0-9]+)',
+        'controller' => 'order',
+        'action' => 'update',
+        'uniquePage' => true
+    ],
 ];
