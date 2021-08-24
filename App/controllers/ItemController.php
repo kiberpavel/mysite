@@ -15,9 +15,6 @@ class ItemController extends Controller
         if (!$admin) {
             header("Location: /");
         }
-        $item = Items::selectAll();
-//        var_dump( $item);
-//        exit();
 
         $product = Items::convert(Items::selectAll());
 
@@ -88,7 +85,20 @@ class ItemController extends Controller
         $brend = $product->getBrend();
         $price = $product->getPrice();
         $count = $product->getCountItem();
-      
+
+
+        if (isset($_POST['submit'])) {
+            $idCategory = $_POST['idCategory'];
+            $model = $_POST['model'];
+            $photo = $_POST['photo'];
+            $about = $_POST['about'];
+            $country = $_POST['country'];
+            $brend = $_POST['brend'];
+            $price = $_POST['price'];
+            $count = $_POST['count'];
+            Items::update($id, $idCategory, $model, $photo, $about, $country, $brend, $price, $count);
+            header("Location: /admin/item");
+        }
         $params = [
             'title' => "Админпанель",
             'person' => $this->person,
@@ -116,9 +126,9 @@ class ItemController extends Controller
             header("Location: /");
         }
         $newArrUrl = explode('/', $_SERVER['REQUEST_URI']);
-        $idProduct = (int)end($newArrUrl);
+        $id = (int)end($newArrUrl);
 
-        Items::deleteProduct($idProduct);
+        Items::deleteProduct($id);
         header("Location: /admin/item");
 
         $params = ['title' => "Админпанель",'person' => $this->person, 'user' => $this->userInfo,
