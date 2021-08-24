@@ -29,14 +29,12 @@
                 </section>
         </section>
         <section>
-            <?php if (!empty($result)) : ?>
+            <?php if (empty($result)) : ?>
                 <p>Вы успешно зарегестрированы!</p>
             <?php else : ?>
-                    <?php if (isset($errors) && is_array($errors)) : ?>
+                    <?php if (isset($errors)) : ?>
                 <ul>
-                        <?php foreach ($errors as $error) :?>
-                        <li> - <?=  $error; ?></li>
-                        <?php endforeach; ?>
+                        <li> - <?=  $errors; ?></li>
                 </ul>
                     <?php endif; ?>
             <?php endif; ?>

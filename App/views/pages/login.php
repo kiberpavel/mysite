@@ -23,11 +23,9 @@
             </section>
     </section>
         <section>
-                <?php if (isset($errors) && is_array($errors)) : ?>
+                <?php if (isset($errors)) : ?>
                 <ul>
-                    <?php foreach ($errors as $error) :?>
-                                <li> - <?=  $error; ?></li>
-                    <?php endforeach; ?>
+		                <li> - <?=  $errors; ?></li>
                 </ul>
                 <?php endif; ?>
         </section>
