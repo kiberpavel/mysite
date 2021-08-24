@@ -17,47 +17,47 @@ class Items extends ActiveRecordEntity
     public $brend;
     public $price;
     public $countItems;
-    
+
     public function getIdCategory(): int
     {
         return $this->idCategory;
     }
-    
+
     public function getModel(): string
     {
         return $this->model;
     }
-    
+
     public function getPhoto(): string
     {
         return $this->photo;
     }
-    
+
     public function getAbout(): string
     {
         return $this->about;
     }
-    
+
     public function getCountry(): string
     {
         return $this->country;
     }
-    
+
     public function getBrend(): string
     {
         return $this->brend;
     }
-    
+
     public function getPrice(): int
     {
         return $this->price;
     }
-    
+
     public function getCountItem(): int
     {
         return $this->countItems;
     }
-    
+
     public function getName(): string
     {
         return $this->name;
@@ -120,36 +120,20 @@ class Items extends ActiveRecordEntity
         );
         return $entities ? $entities[0] : null;
     }
-    
-    public static function update(int $idCategory, string $model, string $photo, string $about, string $country, string $brend, int $price, int $count): ?self
+
+    public static function update(int $id, int $idCategory, string $model, string $photo, string $about, string $country, string $brend, int $price, int $count): ?self
     {
         $db = Database::getInstance();
         $entities = $db->query(
-            'UPDATE `' . static::getTableName() . '` (id_category, model,
-            photo,about,country,brend,price,count_items)
-            VALUES (:id_category, :model, :photo,:about,:country,:brend,:price,:count_items)',
+            'UPDATE `' . static::getTableName() . '` SET id_category = :id_category, model = :model,
+            photo = :photo ,about = :about ,country = :country,
+            brend = :brend,price = :price,count_items = :count_items WHERE id = :id',
             [':id_category' => $idCategory, ':model' => $model, ':photo' => $photo,':about' => $about,
-                ':country' => $country,':brend' => $brend,':price' => $price,':count_items' => $count],
+                ':country' => $country,':brend' => $brend,':price' => $price,':count_items' => $count,':id' => $id],
             User::class
         );
         return $entities ? $entities[0] : null;
     }
-
-//    public function findByCategory(string $name)
-//    {
-//        $sth = self::$db->prepare("SELECT * FROM Items INNER JOIN Category on Items.id_category=Category.id WHERE Category.name = :name");
-//        $sth->bindParam(':name', $name);
-//        $sth->execute();
-//        $this->items = $sth->fetchAll(PDO::FETCH_ASSOC);
-//        return $this->items;
-//    }
-//    public function getCategories()
-//    {
-//        $sth = self::$db->prepare("SELECT * FROM  Category ");
-//        $sth->execute();
-//        $this->items = $sth->fetchAll(PDO::FETCH_ASSOC);
-//        return $this->items;
-//    }
 
     protected static function getTableName(): string
     {
