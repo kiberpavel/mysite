@@ -19,12 +19,13 @@ class LoginController extends Controller
         if (!$this->person) {
             header("Location: /cabinet");
         }
-        
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             extract($_POST);
             if ($this->login->login($login, $password)) {
                 header("Location: /cabinet");
             }
+            $errors = $this->login->getErrors();
         }
         $params = [
             'title' => 'Авторизация',

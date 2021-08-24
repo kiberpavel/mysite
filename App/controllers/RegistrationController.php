@@ -5,18 +5,17 @@ namespace Controllers;
 use Core\Controller;
 use Models\RegistrationModel;
 use Models\User;
-use Db\Database;
 
 class RegistrationController extends Controller
 {
     public function __construct()
     {
         parent::__construct();
+        $this->register = new RegistrationModel();
     }
 
     public function actionReg()
     {
-    
         if (!$this->person) {
             header("Location: /cabinet");
         }
@@ -33,31 +32,13 @@ class RegistrationController extends Controller
             $login = $_POST['login'];
             $password = md5($_POST['password']);
             $email = $_POST['email'];
-            $errors = false;
 
-//            if (!RegistrationModel::checkName($name)) {
-//                $errors[] = 'Неправильное имя';
-//            }
-//
-//            if (RegistrationModel::checkSecondName($second_name)) {
-//                $errors[] = 'Неправильная фамилия';
-//            }
-//
-//            if (RegistrationModel::checkLogin($login)) {
-//                {
-//                    $errors[] = 'Неправильный логин';
-//                }
-//            }
-//
-//            if (RegistrationModel::checkPassword($password)) {
-//                $errors[] = 'Неккоректны пароль';
-//            }
-//
-//            if (RegistrationModel::checkEmail($email)) {
-//                $errors[] = 'Неккоректный email';
-//            }
 
-            if ($errors == false) {
+            $this->register->checkData($name, $second_name, $login, $password, $email);
+
+            $errors = $this->register->getErrors();
+
+            if (!isset($errors)) {
                 $result = User::insert($name, $second_name, $login, $password, $email);
             }
         }
