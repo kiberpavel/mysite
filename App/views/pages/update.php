@@ -37,7 +37,7 @@
                     <input type="file"  name="photo" class="input" >
                 </li>
                 <li>
-                    <button name="submit">Добавить товар</button>
+                    <button name="submit">Изменить товар</button>
                 </li>
             </ul>
         
