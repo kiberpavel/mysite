@@ -3,7 +3,6 @@
 namespace Models;
 
 use Core\ActiveRecordEntity;
-use http\Exception\InvalidArgumentException;
 use PDO;
 use Db\Database;
 
@@ -17,36 +16,36 @@ class User extends ActiveRecordEntity
     public $status;
 
 
-//    public function getName(): string
-//    {
-//        return $this->firstName;
-//    }
-//
-//    public function getSecond(): string
-//    {
-//        return $this->secondName;
-//    }
-//
-//    public function getLogin()
-//    {
-//        return $this->login;
-//    }
-//
-//    public function getPassword(): string
-//    {
-//        return $this->password;
-//    }
-//
-//    public function getEmail(): string
-//    {
-//        return $this->email;
-//    }
-//
-//    public function getStatus(): int
-//    {
-//        return $this->status;
-//    }
-//
+    public function getName(): string
+    {
+        return $this->firstName;
+    }
+
+    public function getSecond(): string
+    {
+        return $this->secondName;
+    }
+
+    public function getLogin()
+    {
+        return $this->login;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
 //    public function setLogin(string $login): void
 //    {
 //        $this->login = $login;
@@ -101,16 +100,16 @@ class User extends ActiveRecordEntity
         return $entities ? $entities[0] : null;
     }
 
-    public static function getStatus(int $id): ?self
-    {
-        $db = Database::getInstance();
-        $entities = $db->query(
-            'SELECT status FROM `' . static::getTableName() . '` WHERE id=:id;',
-            [':id' => $id],
-            static::class
-        );
-        return $entities ? $entities[0] : null;
-    }
+//    public static function getStatus(int $id): ?self
+//    {
+//        $db = Database::getInstance();
+//        $entities = $db->query(
+//            'SELECT status FROM `' . static::getTableName() . '` WHERE id=:id;',
+//            [':id' => $id],
+//            static::class
+//        );
+//        return $entities ? $entities[0] : null;
+//    }
     
 
 

@@ -31,6 +31,7 @@ class LoginController extends Controller
             'errors' => $errors,
             'person' => $this->person,
             'count' => $this->count,
+            'admin' => $this->admin
         ];
         $this->view->render('login', $params);
     }

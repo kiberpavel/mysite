@@ -116,4 +116,43 @@ return [
         'controller' => 'admin',
         'action' => 'admin',
     ],
+    [
+        'url' => 'admin/item',
+        'controller' => 'item',
+        'action' => 'index',
+    ],
+    [
+        'url' => 'admin/item/create',
+        'controller' => 'item',
+        'action' => 'create',
+    ],
+    [
+        'url' => 'admin/item/update/([0-9]+)',
+        'controller' => 'item',
+        'action' => 'update',
+        'uniquePage' => true
+    ],
+    [
+        'url' => 'admin/item/delete/([0-9]+)',
+        'controller' => 'item',
+        'action' => 'delete',
+        'uniquePage' => true
+    ],
+    [
+        'url' => 'admin/orders',
+        'controller' => 'order',
+        'action' => 'index',
+    ],
+    [
+        'url' => 'admin/orders/delete/([0-9]+)',
+        'controller' => 'order',
+        'action' => 'delete',
+        'uniquePage' => true
+    ],
+    [
+        'url' => 'admin/orders/update/([0-9]+)',
+        'controller' => 'order',
+        'action' => 'update',
+        'uniquePage' => true
+    ],
 ];

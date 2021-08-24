@@ -21,35 +21,45 @@ class BasketController extends Controller
     {
         $newArrUrl = explode('/', $_SERVER['REQUEST_URI']);
         $idProduct = (int)end($newArrUrl);
-
-        $productsInCart = false;
-        $productsInCart = $this->basket->getProductsId();
-        if (!empty($productsInCart)) {
-            foreach ($productsInCart as $product) {
-                $list = Items::findByIdItems($product);
-                $cart[] = Items::convert($list);
+        if ($this->basket->getProductsId() !== false) {
+            $productsInCart = array_count_values($this->basket->getProductsId());
+            $keys = array_keys($productsInCart);
+            $cart = [];
+            if (!empty($keys)) {
+                foreach ($keys as $key) {
+                    $list = Items::findByIdItems($key);
+                    $temp = Items::convert($list);
+                    $temp['countCart'] = $productsInCart[$key];
+                    $cart[] = $temp;
+                }
+                $total = $this->basket->totalPrice($cart);
             }
-            $total = $this->basket->totalPrice($cart, 'price');
+        } else {
+            $productsInCart = [];
+            $cart = [];
+            $total = 0;
+        }
+        $countItems = [];
+        foreach ($cart as $product) {
+            $countItems[] = $product['countCart'];
         }
 
 
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $id_user = $this->userId;
-            $id_item = array_column($cart, 'id');
+            $idUser = $this->userId;
+            $idItem = array_column($cart, 'id');
             if (isset($_SESSION['products'])) {
-                foreach ($id_item as $id) {
-                    $id = (int) $id;
-                    $order = Orders::insert($id_user, $id);
+                for ($i = 0; $i < count($idItem); $i++) {
+                    $id = $idItem[$i];
+                    $order = Orders::insert($idUser, $id, $countItems[$i]);
                 }
                 $this->basket->clear();
             }
             header("Location: /catalog");
         }
-
         $params = ['title' => 'Корзина',  'person' => $this->person, 'user' => $this->userInfo,
             'count' => $this->count,'productsInCart' => $productsInCart ,'cart' => $cart,'total' => $total,
-            'idProduct' => $idProduct];
+            'idProduct' => $idProduct,'admin' => $this->admin];
         $this->view->render('basket', $params);
     }
 
@@ -57,15 +67,8 @@ class BasketController extends Controller
     {
         $arrUrl = explode('/', $_SERVER['REQUEST_URI']);
         $id = (int)end($arrUrl);
-        $list = Items::findByIdItems($id);
-        $item = Items::convert($list);
-//        var_dump($item);
-//        exit();
         $product = new BasketModel();
         $product->deleteProducts($id);
-//        var_dump($product);
-//        exit();
-
         header("Location: /basket");
     }
 }
