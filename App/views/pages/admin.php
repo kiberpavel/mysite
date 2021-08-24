@@ -6,7 +6,7 @@
 						<ul>
 								<li>Вам доступны такие возможности:</li>
 								<li><a href="/admin/item/">Управление товарами</a></li>
-								<li><a href="#">Управление заказами</a></li>
+								<li><a href="admin/orders">Управление заказами</a></li>
 						</ul>
 				</div>
 		</section>
