@@ -10,21 +10,28 @@ class LoginModel extends Model
 {
     public $user;
     public $autentif;
+    public $errors;
 
     public function __construct()
     {
         $this->user = new User();
         $this->autentif = new Authentication();
     }
+    
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+    
 
     public function login($login, $password)
     {
         $result = false;
-        $errors = false;
+        
 
         $userId = $this->user->getUserData($login, md5($password));
         if ($userId == false) {
-            $errors[] = "Неправильно введенные данные для входа";
+            $this->errors = "Неправильно введенные данные для входа";
         } else {
             $this->autentif->auth($userId);
             $result = true;
