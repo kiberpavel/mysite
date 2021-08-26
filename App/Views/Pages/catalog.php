@@ -45,7 +45,7 @@ function outputProducts(data, elem) {
     }
 }
 
-		getInfo(`/api/catalog`)
+        getInfo(`/api/catalog`)
     .then((data) => outputProducts(data, '.product-wrap'))
     .catch(err => console.log(err))
 
