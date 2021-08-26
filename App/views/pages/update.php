@@ -1,7 +1,7 @@
 <main>
-    <p class="title-name">Добавление товара</p>
+    <p class="title-name">Изменение товара</p>
     <section class="admin-container admin-create">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <ul class="admin-create">
                 <li>
                     <p>Id категории</p>
@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <p>Фото</p>
-		                <img src="<?=$photo?>" alt="<?=$model?>">
+		                <img src="<?=$photo?>" alt="<?=$model?>" width="600">
                     <input type="file"  name="photo" class="input" >
                 </li>
                 <li>
