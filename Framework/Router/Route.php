@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Core\Router;
 
 use Controllers;
 
@@ -56,7 +56,7 @@ class Route
     private function load($controller, $action)
     {
         $controllerName = 'Controllers\\' . ucfirst($controller . 'Controller');
-        $actionName = 'action' . ucfirst($action);
+        $actionName = $action;
         $controllerObject = new $controllerName();
         $controllerObject->$actionName();
         exit;
