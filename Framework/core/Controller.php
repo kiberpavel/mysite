@@ -3,7 +3,7 @@
 namespace Core;
 
 use Db\Database;
-use Models\BasketModel;
+use Models\Basket;
 use Models\User;
 
 class Controller
@@ -25,7 +25,7 @@ class Controller
         $this->view = new View();
         $userInf = $this->autentif->getUser();
         $this->person = $this->autentif->isGuest();
-        $this->basket = new BasketModel();
+        $this->basket = new Basket();
         $this->ses = new Session();
         $this->admin = AdminBase::checkAdmin();
         if (!$this->person) {
