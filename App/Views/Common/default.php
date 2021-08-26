@@ -1,8 +1,8 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/App/views/components/header.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Views/Components/header.php');
 
 echo $layout;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/App/views/components/footer.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Views/Components/footer.php');
 
 

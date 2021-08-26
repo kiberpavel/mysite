@@ -11,7 +11,7 @@ class Database
 
     private function __construct()
     {
-        $dbOptions = $_SERVER['DOCUMENT_ROOT'] . '/App/conf/db_params.php';
+        $dbOptions = $_SERVER['DOCUMENT_ROOT'] . '/App/Config/db_params.php';
         $params = include($dbOptions);
 
         $this->pdo = new \PDO(
