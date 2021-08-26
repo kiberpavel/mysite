@@ -15,8 +15,8 @@
                         <p>Авторизируйся чтобы купить товар</p>
                 </div>
         <?php else : ?>
-                <div class="distance" >
-                            <button  class="about-button"><a href="/basket/add/<?= $idProduct;?>">Купить</a></button>
+                <div class="distance">
+                        <a href="/basket/add/<?= $idProduct;?>" class="button about-button-width"><p>Купить</p></a>
             </div>
         <?php endif;?>
     </div>
