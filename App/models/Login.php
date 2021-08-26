@@ -6,7 +6,7 @@ use Core\Model;
 use Models\User;
 use Core\Authentication;
 
-class LoginModel extends Model
+class Login extends Model
 {
     public $user;
     public $autentif;

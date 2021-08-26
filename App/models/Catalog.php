@@ -4,7 +4,7 @@ namespace Models;
 
 use Core\Model;
 
-class CatalogModel extends Model
+class Catalog extends Model
 {
     public $products;
     public $product;

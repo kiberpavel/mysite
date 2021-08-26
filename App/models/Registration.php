@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class RegistrationModel
+class Registration
 {
     public $errors;
 

@@ -5,7 +5,7 @@ namespace Models;
 use Core\Model;
 use Core\Session;
 
-class BasketModel extends Model
+class Basket extends Model
 {
     public function addProduct($id)
     {

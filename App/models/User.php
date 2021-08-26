@@ -46,20 +46,6 @@ class User extends ActiveRecordEntity
         return $this->status;
     }
 
-//    public function setLogin(string $login): void
-//    {
-//        $this->login = $login;
-//    }
-//
-//    public function setPassword(string $password): void
-//    {
-//        $this->password = $password;
-//    }
-//    public function setStatus(string $status): void
-//    {
-//        $this->status = $status;
-//    }
-
     protected static function getTableName(): string
     {
         return 'Users';
@@ -99,62 +85,4 @@ class User extends ActiveRecordEntity
         );
         return $entities ? $entities[0] : null;
     }
-
-//    public static function getStatus(int $id): ?self
-//    {
-//        $db = Database::getInstance();
-//        $entities = $db->query(
-//            'SELECT status FROM `' . static::getTableName() . '` WHERE id=:id;',
-//            [':id' => $id],
-//            static::class
-//        );
-//        return $entities ? $entities[0] : null;
-//    }
-    
-
-
-//    public $user;
-//    public function register($name, $second_name, $login, $password, $email)
-//    {
-//        $sth = self::$db->prepare("INSERT INTO Users (first_name,second_name,login,password,email)"
-//                                . "VALUES (:name, :second_name, :login, :password, :email)");
-//        $sth ->bindParam(':name', $name, PDO::PARAM_STR);
-//        $sth ->bindParam(':second_name', $second_name, PDO::PARAM_STR);
-//        $sth ->bindParam(':login', $login, PDO::PARAM_STR);
-//        $sth ->bindParam(':password', $password, PDO::PARAM_STR);
-//        $sth ->bindParam(':email', $email, PDO::PARAM_STR);
-//        $sth->execute();
-//        $this->user = $sth;
-//        return $this->user;
-//    }
-//
-//    public function getUserData($login, $password)
-//    {
-//        $sth = self::$db->prepare("SELECT * FROM Users WHERE login = :login AND password = :password");
-//        $sth->bindParam(':login', $login, PDO::PARAM_STR);
-//        $sth->bindParam(':password', $password, PDO::PARAM_STR);
-//        $sth->setFetchMode(PDO::FETCH_ASSOC);
-//        $sth->execute();
-//        $identity = $this->user = $sth->fetch();
-//        return $identity;
-//    }
-//    public function findById($id)
-//    {
-//        $sth = self::$db->prepare("SELECT * FROM Users WHERE id = :id");
-//        $sth->bindParam(':id', $id, PDO::PARAM_INT);
-//        $sth->setFetchMode(PDO::FETCH_ASSOC);
-//        $sth->execute();
-//        $this->user = $sth->fetch();
-//        return $this->user;
-//    }
-//    public function updatePassword($password, $login)
-//    {
-//        $sth = self::$db->prepare("UPDATE Users SET password = :password WHERE login = :login");
-//        $sth->bindParam(':password', $password, PDO::PARAM_STR);
-//        $sth->bindParam(':login', $login, PDO::PARAM_STR);
-//        $sth->setFetchMode(PDO::FETCH_ASSOC);
-//        $sth->execute();
-//        $this->user = $sth->fetch();
-//        return $this->user;
-//    }
 }
