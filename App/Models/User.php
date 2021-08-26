@@ -2,7 +2,7 @@
 
 namespace Models;
 
-use Core\ActiveRecordEntity;
+use Core\ActiveRecord\ActiveRecordEntity;
 use PDO;
 use Db\Database;
 
@@ -46,12 +46,6 @@ class User extends ActiveRecordEntity
         return $this->status;
     }
 
-    protected static function getTableName(): string
-    {
-        return 'Users';
-    }
-
-
     public static function getUserData(string $login, string $password): ?self
     {
         $db = Database::getInstance();
@@ -84,5 +78,10 @@ class User extends ActiveRecordEntity
             User::class
         );
         return $entities ? $entities[0] : null;
+    }
+
+    protected static function getTableName(): string
+    {
+        return 'users';
     }
 }

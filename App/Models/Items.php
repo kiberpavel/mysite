@@ -2,7 +2,7 @@
 
 namespace Models;
 
-use Core\ActiveRecordEntity;
+use Core\ActiveRecord\ActiveRecordEntity;
 use Db\Database;
 use PDO;
 
@@ -67,8 +67,8 @@ class Items extends ActiveRecordEntity
     {
         $db = Database::getInstance();
         return $db->query(
-            'SELECT Items.id,Items.id_category,model,photo,about,country,brend,price,
-            Category.name FROM`' . static::getTableName() . '` INNER JOIN `Category` on Items.id_category=Category.id',
+            'SELECT items.id,items.id_category,model,photo,about,country,brend,price,
+            category.name FROM`' . static::getTableName() . '` INNER JOIN `category` on items.id_category=category.id',
             [],
             Items::class
         );
@@ -78,7 +78,7 @@ class Items extends ActiveRecordEntity
     {
         $db = Database::getInstance();
         return  $db->query(
-            'SELECT * FROM `' . static::getTableName() . '`INNER JOIN `Category` on Items.id_category=Category.id WHERE Category.name = :name',
+            'SELECT * FROM `' . static::getTableName() . '`INNER JOIN `category` on items.id_category=category.id WHERE category.name = :name',
             [':name' => $name],
             Items::class
         );
@@ -88,9 +88,9 @@ class Items extends ActiveRecordEntity
     {
         $db = Database::getInstance();
         $entities = $db->query(
-            'SELECT Items.id,Items.id_category,model,photo,about,country,
-                   brend,price,count_items,Category.name FROM `' . static::getTableName() . '`INNER JOIN `Category` on
-                   Items.id_category=Category.id WHERE Items.id = :id',
+            'SELECT items.id,items.id_category,model,photo,about,country,
+                   brend,price,count_items,category.name FROM `' . static::getTableName() . '`INNER JOIN `category` on
+                   items.id_category=category.id WHERE items.id = :id',
             [':id' => $id],
             Items::class
         );
@@ -157,6 +157,6 @@ class Items extends ActiveRecordEntity
 
     protected static function getTableName(): string
     {
-        return 'Items';
+        return 'items';
     }
 }

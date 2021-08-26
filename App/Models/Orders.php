@@ -2,7 +2,7 @@
 
 namespace Models;
 
-use Core\ActiveRecordEntity;
+use Core\ActiveRecord\ActiveRecordEntity;
 use Db\Database;
 use PDO;
 
@@ -60,6 +60,6 @@ class Orders extends ActiveRecordEntity
     }
     protected static function getTableName(): string
     {
-        return 'Product_orders';
+        return 'product_orders';
     }
 }
