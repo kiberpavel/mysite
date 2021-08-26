@@ -3,21 +3,25 @@
 		<section class="main-autoriz container">
 				<section>
 						<p class="cabinet-name">Данные</p>
+								<div class="wrap-cabinet">
+										<p class="wrap-cabinet__text">Имя:</p>
+										<p><?= $user['firstName']?></p>
+								</div>
+								<div class="wrap-cabinet">
+										<p class="wrap-cabinet__text">Фамилия:</p>
+										<p><?= $user['secondName']?></p>
+								</div>
+								<div class="wrap-cabinet">
+										<p class="wrap-cabinet__text">Логин:</p>
+										<p><?= $user['login']?></p>
+								</div>
+								<div class="wrap-cabinet">
+										<p class="wrap-cabinet__text">Email:</p>
+										<p><?= $user['email']?></p>
+								</div>
 						<form>
-								<div class="input-wrap">
-										<p class="cabinet-text"><?= $user['firstName']?></p>
-								</div>
-								<div class="input-wrap">
-										<p class="cabinet-text"><?= $user['secondName']?></p>
-								</div>
-								<div class="input-wrap">
-										<p class="cabinet-text"><?= $user['login']?></p>
-								</div>
-								<div class="input-wrap">
-										<p class="cabinet-text"><?= $user['email']?></p>
-								</div>
 								<div class="input-wrap button-wrap">
-										<button><a href="/logout">Выход</a></button>
+										<a href="/logout" class="button cabinet-button-width"><p>Выход</p></a>
 								</div>
 						</form>
 				</section>
