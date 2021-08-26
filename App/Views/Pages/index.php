@@ -7,7 +7,7 @@
 		<section class="second-section container">
 				<div class="four-icon">
 						<div class="icon-decor back-lamp" >
-								<a href=""><p>Люстры</p></a>
+							<p>Люстры</p>
 						</div>
 						<div class="icon-decor back-svetilnik">
 								<p>Светильники</p>
