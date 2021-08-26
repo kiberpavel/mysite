@@ -5,18 +5,33 @@ namespace Controllers;
 use Core\AdminBase;
 use Core\Controller;
 use Models\Items;
+use Models\Photo;
 
 class ItemController extends Controller
 {
+    public Photo $photo;
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->photo = new Photo();
+    }
+    
     public function actionIndex()
     {
         $admin = AdminBase::checkAdmin();
+        $model = $_POST['model'];
 
         if (!$admin) {
             header("Location: /");
         }
 
-        $product = Items::convert(Items::selectAll());
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $product = Items::convert(Items::getByModel($model));
+        } else {
+            $product = Items::convert(Items::selectAll());
+        }
+
 
         $params = ['title' => "Админпанель",'person' => $this->person, 'user' => $this->userInfo,
             'count' => $this->count,'product' => $product,'admin' => $admin
@@ -41,16 +56,16 @@ class ItemController extends Controller
         $price = '';
         $count = '';
 
-        if (isset($_POST['submit'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->photo->add();
             $idCategory = $_POST['idCategory'];
             $model = $_POST['model'];
-            $photo = $_POST['photo'];
+            $photo = $this->photo->get();
             $about = $_POST['about'];
             $country = $_POST['country'];
             $brend = $_POST['brend'];
             $price = $_POST['price'];
             $count = $_POST['count'];
-
 
             Items::insert($idCategory, $model, $photo, $about, $country, $brend, $price, $count);
 
@@ -79,7 +94,7 @@ class ItemController extends Controller
         $name = $product->getName();
         $idCategory = $product->getIdCategory();
         $model = $product->getModel();
-        $photo = $product->getPhoto();
+        $photo = '/public/image/'. $product->getPhoto();
         $about = $product->getAbout();
         $country = $product->getCountry();
         $brend = $product->getBrend();
@@ -88,9 +103,10 @@ class ItemController extends Controller
 
 
         if (isset($_POST['submit'])) {
+            $this->photo->add();
             $idCategory = $_POST['idCategory'];
             $model = $_POST['model'];
-            $photo = $_POST['photo'];
+            $photo = $this->photo->get();
             $about = $_POST['about'];
             $country = $_POST['country'];
             $brend = $_POST['brend'];
