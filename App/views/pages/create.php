@@ -1,7 +1,7 @@
 <main>
     <p class="title-name">Добавление товара</p>
     <section class="admin-container admin-create">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
 		            <ul class="admin-create">
 				            <li>
 						            <p>Id категории</p>
