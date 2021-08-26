@@ -16,18 +16,17 @@
                                     <button name="submit">Авторизация</button>
                             </div>
                     </form>
+                    <section class="errors">
+                    <?php if (isset($errors)) : ?>
+                                    <ul>
+                                            <li> - <?=  $errors; ?></li>
+                                    </ul>
+                    <?php endif; ?>
+                    </section>
             </section>
             <section class="lumen-about">
                     <h1 class="main-title">Дизайнерские люстры от мировых брендов</h1>
                     <p class="info-main">Сделайте интерьер стильным и современным</p>
             </section>
     </section>
-        <section>
-                <?php if (isset($errors)) : ?>
-                <ul>
-		                <li> - <?=  $errors; ?></li>
-                </ul>
-                <?php endif; ?>
-        </section>
-
 </main>
