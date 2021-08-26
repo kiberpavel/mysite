@@ -3,15 +3,15 @@
 namespace Controllers;
 
 use Core\Controller;
-use Models\LoginModel;
+use Models\Login;
 
 class LoginController extends Controller
 {
-    public LoginModel $login;
+    public Login $login;
     public function __construct()
     {
         parent::__construct();
-        $this->login = new LoginModel();
+        $this->login = new Login();
     }
 
     public function actionLogin()

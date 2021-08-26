@@ -3,8 +3,6 @@
 namespace Controllers;
 
 use Core\Controller;
-use Core\Session;
-use Db\Database;
 use Models\User;
 
 class CabinetController extends Controller

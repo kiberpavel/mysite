@@ -5,7 +5,7 @@ namespace Controllers;
 use Core\Controller;
 use Core\View;
 use Db\Database;
-use Models\BasketModel;
+use Models\Basket;
 use Models\Items;
 
 class AboutController extends Controller
@@ -48,7 +48,7 @@ class AboutController extends Controller
     {
         $newArrUrl = explode('/', $_SERVER['REQUEST_URI']);
         $idProduct = (int)end($newArrUrl);
-        $product = new BasketModel();
+        $product = new Basket();
         $product->addProduct($idProduct);
         header('Location: /catalog');
     }

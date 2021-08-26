@@ -3,9 +3,6 @@
 namespace Controllers;
 
 use Core\Controller;
-use Core\Session;
-use Db\Database;
-use Models\BasketModel;
 use Models\Category;
 use Models\Items;
 

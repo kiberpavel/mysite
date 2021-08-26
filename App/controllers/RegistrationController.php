@@ -3,7 +3,7 @@
 namespace Controllers;
 
 use Core\Controller;
-use Models\RegistrationModel;
+use Models\Registration;
 use Models\User;
 
 class RegistrationController extends Controller
@@ -11,7 +11,7 @@ class RegistrationController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->register = new RegistrationModel();
+        $this->register = new Registration();
     }
 
     public function actionReg()

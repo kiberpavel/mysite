@@ -3,11 +3,9 @@
 namespace Controllers;
 
 use Core\Controller;
-use Db\Database;
-use Models\BasketModel;
+use Models\Basket;
 use Models\Items;
 use Models\Orders;
-use Models\User;
 
 class BasketController extends Controller
 {
@@ -67,7 +65,7 @@ class BasketController extends Controller
     {
         $arrUrl = explode('/', $_SERVER['REQUEST_URI']);
         $id = (int)end($arrUrl);
-        $product = new BasketModel();
+        $product = new Basket();
         $product->deleteProducts($id);
         header("Location: /basket");
     }

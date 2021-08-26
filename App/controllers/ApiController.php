@@ -2,7 +2,6 @@
 
 namespace Controllers;
 
-use Db\Database;
 use Models\Items;
 
 class ApiController
@@ -21,8 +20,6 @@ class ApiController
 
     public function actionCategories()
     {
-    
-        
         header('Content-Type: application/json');
         $arrUrl = explode('/', $_SERVER['REQUEST_URI']);
         $category = ucfirst(end($arrUrl));
