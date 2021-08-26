@@ -1,6 +1,6 @@
 <main>
         <p class="title-name">Корзина</p>
-<!--    --><?php //var_dump($_SESSION) ?>
+		<section class="container cart-wrap">
     <?php if ($productsInCart) : ?>
   <section class="basket-decor">
     <div class="basket-main" >
@@ -16,9 +16,9 @@
       <div>
         <p>Цена</p>
       </div>
-		    <div>
-				    <p>Кол-во</p>
-		    </div>
+            <div>
+                    <p>Кол-во</p>
+            </div>
       <div>
         <p>Удалить</p>
       </div>
@@ -38,9 +38,9 @@
       <div>
         <p><?= $product['price'] * $product['countCart'] ?></p>
       </div>
-		    <div>
-				    <p><?= $product['countCart'] ?></p>
-		    </div>
+            <div>
+                    <p><?= $product['countCart'] ?></p>
+            </div>
       <div >
         <p><a href="basket/delete/<?= $product['id'] ?>"><img src="../../../public/image/cancel%201.svg" alt="Удалить"></a></p>
       </div>
@@ -58,6 +58,9 @@
     </div>
   </section>
     <?php else : ?>
+        <section class="cart-empty">
                 <p>Корзина пустая</p>
+        </section>
     <?php endif;?>
+		</section>
 </main>
