@@ -1,14 +1,17 @@
 <?php
 
-namespace Core;
+namespace Core\Controller;
 
-use Db\Database;
 use Models\Basket;
 use Models\User;
+use Core\Authentication\Authentication;
+use Core\View\View;
+use Core\Session\Session;
+use Core\Helpers\AdminBase;
 
 class Controller
 {
-    //fix ses
+
     public $user;
     public $model;
     public $view;

@@ -1,9 +1,8 @@
 <?php
 
-namespace Core;
+namespace Core\Helpers;
 
-use Core\Authentication;
-use Models\User;
+use Core\Authentication\Authentication;
 
 class AdminBase
 {

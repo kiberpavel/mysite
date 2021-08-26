@@ -1,6 +1,8 @@
 <?php
 
-namespace Core;
+namespace Core\Authentication;
+
+use Core\Session\Session;
 
 class Authentication
 {

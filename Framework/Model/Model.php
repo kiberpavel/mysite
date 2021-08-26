@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Core\Model;
 
 use Db\Database;
 use PDO;

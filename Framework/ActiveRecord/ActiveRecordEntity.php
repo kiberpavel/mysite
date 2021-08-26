@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Core\ActiveRecord;
 
 use Db\Database;
 
