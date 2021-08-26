@@ -32,13 +32,6 @@ return [
         'action' => 'categories'
     ],
     [
-        'url' => 'search/([0-9A-z_]+)',
-        'controller' => 'main',
-        'action' => 'search',
-        'getKey' => 'search',
-        'uniquePage' => true
-    ],
-    [
         'url' => 'catalog/lamp',
         'controller' => 'catalog',
         'action' => 'category'
