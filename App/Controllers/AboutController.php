@@ -2,16 +2,16 @@
 
 namespace Controllers;
 
-use Core\Controller;
-use Core\Model;
-use Core\View;
+use Core\Controller\Controller;
+use Core\Model\Model;
+use Core\View\View;
 use Db\Database;
 use Models\Basket;
 use Models\Items;
 
 class AboutController extends Controller
 {
-    public function actionAbout()
+    public function about()
     {
         $link = Model::cutUrl();
         $id = intval($link);
@@ -35,7 +35,7 @@ class AboutController extends Controller
         $this->view->render('about', $params);
     }
 
-    public function actionAdd()
+    public function add()
     {
         $idProduct = Model::cutUrl();
         $product = new Basket();
