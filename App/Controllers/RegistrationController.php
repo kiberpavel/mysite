@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Core\Controller;
+use Core\Controller\Controller;
 use Models\Registration;
 use Models\User;
 
@@ -14,7 +14,7 @@ class RegistrationController extends Controller
         $this->register = new Registration();
     }
 
-    public function actionReg()
+    public function reg()
     {
         if (!$this->person) {
             header("Location: /cabinet");
@@ -33,7 +33,6 @@ class RegistrationController extends Controller
                 User::insert($name, $second_name, $login, $password, $email);
             }
         }
-        //vunesti v otdelnul
         $params = [
             'title' => "Регистрация",
             'errors' => $errors,

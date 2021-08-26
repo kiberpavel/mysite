@@ -2,11 +2,11 @@
 
 namespace Controllers;
 
-use Core\Controller;
+use Core\Controller\Controller;
 
 class IndexController extends Controller
 {
-    public function actionIndex()
+    public function index()
     {
         $params = ['title' => 'Главная',
             'person' => $this->person,

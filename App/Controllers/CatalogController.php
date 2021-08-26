@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Core\Controller;
+use Core\Controller\Controller;
 use Models\Category;
 use Models\Items;
 
@@ -10,7 +10,7 @@ class CatalogController extends Controller
 {
     public Items $items;
 
-    public function actionCatalog()
+    public function catalog()
     {
         $list = Category::selectAll();
         $categoryList = Category::convert($list);
@@ -24,7 +24,7 @@ class CatalogController extends Controller
             ];
         $this->view->render('catalog', $params);
     }
-    public function actionCategory()
+    public function category()
     {
         $list = Category::selectAll();
         $categoryList = Category::convert($list);

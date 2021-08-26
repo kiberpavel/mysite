@@ -2,12 +2,12 @@
 
 namespace Controllers;
 
-use Core\AdminBase;
-use Core\Controller;
+use Core\Helpers\AdminBase;
+use Core\Controller\Controller;
 
 class AdminController extends Controller
 {
-    public function actionAdmin()
+    public function admin()
     {
         $admin = AdminBase::checkAdmin();
         if (!$admin) {

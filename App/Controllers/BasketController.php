@@ -2,17 +2,16 @@
 
 namespace Controllers;
 
-use Core\Controller;
-use Core\Model;
+use Core\Controller\Controller;
+use Core\Model\Model;
 use Models\Basket;
 use Models\Items;
-use Models\Orders;
 
 class BasketController extends Controller
 {
     public Items $items;
 
-    public function actionBasket()
+    public function basket()
     {
         $link = Model::cutUrl();
         $idProduct = intval($link);
@@ -35,7 +34,7 @@ class BasketController extends Controller
         $this->view->render('basket', $params);
     }
 
-    public function actionDelete()
+    public function delete()
     {
         $link = Model::cutUrl();
         $id = intval($link);

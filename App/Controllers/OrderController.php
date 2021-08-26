@@ -2,9 +2,9 @@
 
 namespace Controllers;
 
-use Core\AdminBase;
-use Core\Controller;
-use Core\Model;
+use Core\Helpers\AdminBase;
+use Core\Controller\Controller;
+use Core\Model\Model;
 use Models\Admin;
 use Models\Orders;
 
@@ -18,7 +18,7 @@ class OrderController extends Controller
         $this->adminModel = new Admin();
     }
 
-    public function actionIndex()
+    public function index()
     {
         $admin = AdminBase::checkAdmin();
 
@@ -38,7 +38,7 @@ class OrderController extends Controller
         $this->view->render('orders_list', $params);
     }
 
-    public function actionDelete()
+    public function delete()
     {
         $admin = AdminBase::checkAdmin();
 
@@ -60,7 +60,7 @@ class OrderController extends Controller
         $this->view->render('admin', $params);
     }
 
-    public function actionUpdate()
+    public function update()
     {
         $admin = AdminBase::checkAdmin();
 

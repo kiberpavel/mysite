@@ -2,12 +2,11 @@
 
 namespace Controllers;
 
-use Core\AdminBase;
-use Core\Controller;
-use Core\Model;
+use Core\Helpers\AdminBase;
+use Core\Controller\Controller;
+use Core\Model\Model;
 use Models\Admin;
 use Models\Items;
-use Models\Photo;
 
 class ItemController extends Controller
 {
@@ -19,7 +18,7 @@ class ItemController extends Controller
         $this->adminModel = new Admin();
     }
 
-    public function actionIndex()
+    public function index()
     {
         $admin = AdminBase::checkAdmin();
         $model = $_POST['model'];
@@ -39,7 +38,7 @@ class ItemController extends Controller
         $this->view->render('admin_product', $params);
     }
 
-    public function actionCreate()
+    public function create()
     {
         $admin = AdminBase::checkAdmin();
 
@@ -61,7 +60,7 @@ class ItemController extends Controller
         $this->view->render('create', $params);
     }
 
-    public function actionUpdate()
+    public function update()
     {
         $admin = AdminBase::checkAdmin();
 
@@ -90,7 +89,7 @@ class ItemController extends Controller
         $this->view->render('update', $params);
     }
 
-    public function actionDelete()
+    public function delete()
     {
         $admin = AdminBase::checkAdmin();
 

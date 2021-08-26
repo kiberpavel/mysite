@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Core\Controller;
+use Core\Controller\Controller;
 use Models\Login;
 
 class LoginController extends Controller
@@ -14,7 +14,7 @@ class LoginController extends Controller
         $this->login = new Login();
     }
 
-    public function actionLogin()
+    public function login()
     {
         if (!$this->person) {
             header("Location: /cabinet");
@@ -38,7 +38,7 @@ class LoginController extends Controller
         $this->view->render('login', $params);
     }
 
-    public function actionLogout()
+    public function logout()
     {
         $this->autentif->logOut();
     }

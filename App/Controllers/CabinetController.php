@@ -2,13 +2,12 @@
 
 namespace Controllers;
 
-use Core\Controller;
+use Core\Controller\Controller;
 use Models\Cabinet;
-use Models\User;
 
 class CabinetController extends Controller
 {
-    public function actionCabinet()
+    public function cabinet()
     {
         if ($this->person) {
             header("Location: /login");

@@ -2,21 +2,21 @@
 
 namespace Controllers;
 
-use Core\Model;
+use Core\Model\Model;
 use Models\Items;
 
 class ApiController
 {
     public Items $items;
 
-    public function actionCatalog()
+    public function catalog()
     {
         header('Content-Type: application/json');
         $itemList = Items::selectItems();
         print_r(json_encode($itemList));
     }
 
-    public function actionCategories()
+    public function categories()
     {
         header('Content-Type: application/json');
         $link = Model::cutUrl();
