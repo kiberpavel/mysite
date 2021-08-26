@@ -116,7 +116,7 @@ class Items extends ActiveRecordEntity
             VALUES (:id_category, :model, :photo,:about,:country,:brend,:price,:count_items)',
             [':id_category' => $idCategory, ':model' => $model, ':photo' => $photo,':about' => $about,
             ':country' => $country,':brend' => $brend,':price' => $price,':count_items' => $count],
-            User::class
+            Items::class
         );
         return $entities ? $entities[0] : null;
     }
@@ -130,9 +130,20 @@ class Items extends ActiveRecordEntity
             brend = :brend,price = :price,count_items = :count_items WHERE id = :id',
             [':id_category' => $idCategory, ':model' => $model, ':photo' => $photo,':about' => $about,
                 ':country' => $country,':brend' => $brend,':price' => $price,':count_items' => $count,':id' => $id],
-            User::class
+            Items::class
         );
         return $entities ? $entities[0] : null;
+    }
+
+    public static function getByModel($model)
+    {
+        $db = Database::getInstance();
+        $model = '%' . $model . '%';
+        return $db->query(
+            'SELECT * FROM `' . static::getTableName() . '`WHERE model LIKE :model',
+            [':model'=>$model],
+            Items::class
+        );
     }
 
     protected static function getTableName(): string
