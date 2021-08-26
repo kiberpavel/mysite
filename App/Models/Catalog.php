@@ -2,7 +2,7 @@
 
 namespace Models;
 
-use Core\Model;
+use Core\Model\Model;
 
 class Catalog extends Model
 {

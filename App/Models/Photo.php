@@ -6,13 +6,13 @@ class Photo
 {
     protected string $error;
     protected string $image;
-    
+
     public function __construct()
     {
         $this->error = '';
         $this->image = '';
     }
-    
+
     public function add(): void
     {
         $photo = $_FILES['photo'];
@@ -47,12 +47,14 @@ class Photo
             $this->error = 'An unknown error occurred while uploading the file.';
         }
     }
-    
-    public function get(): string {
+
+    public function get(): string
+    {
         return $this->image;
     }
-    
-    public function getError(): string {
+
+    public function getError(): string
+    {
         return $this->error;
     }
 }

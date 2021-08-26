@@ -2,9 +2,9 @@
 
 namespace Models;
 
-use Core\Authentication;
-use Core\Model;
-use Core\Session;
+use Core\Authentication\Authentication;
+use Core\Model\Model;
+use Core\Session\Session;
 
 class Basket extends Model
 {
@@ -85,8 +85,6 @@ class Basket extends Model
     {
         $link = Model::cutUrl();
         $idProduct = intval($link);
-        //юрл
-        //вынести в отдельный блок.ы
         if ($this->getProductsId() !== false) {
             $productsInCart = array_count_values($this->getProductsId());
             $keys = array_keys($productsInCart);
@@ -122,12 +120,14 @@ class Basket extends Model
     public function insert(): void
     {
         $this->autentification = new Authentication();
-        $userInfo = $this->autentification->getUser();
-        $this->userId = $userInfo->getId();
-        extract($this->basketLogic(), EXTR_OVERWRITE);
+        $this->person = $this->autentification->isGuest();
+        if (!$this->person) {
+            $userInfo = $this->autentification->getUser();
+            $this->userId = $userInfo->getId();
+            extract($this->basketLogic(), EXTR_OVERWRITE);
+        }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //вынести в отдельный блок.
             $idUser = $this->userId;
             $idItem = array_column($cart, 'id');
             if (isset($_SESSION['products'])) {
@@ -137,7 +137,6 @@ class Basket extends Model
                 }
                 $this->clear();
             }
-            //вынести в отдельный блок.
             header("Location: /catalog");
         }
     }

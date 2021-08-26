@@ -2,9 +2,8 @@
 
 namespace Models;
 
-use Core\Model;
-use Models\User;
-use Core\Authentication;
+use Core\Model\Model;
+use Core\Authentication\Authentication;
 
 class Login extends Model
 {

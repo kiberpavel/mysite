@@ -2,12 +2,12 @@
 
 namespace Models;
 
-use Core\ActiveRecordEntity;
+use Core\ActiveRecord\ActiveRecordEntity;
 
 class Category extends ActiveRecordEntity
 {
     protected static function getTableName(): string
     {
-        return 'Category';
+        return 'category';
     }
 }
