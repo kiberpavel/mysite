@@ -1,0 +1,30 @@
+{
+    "name": "pasha/mysite",
+    "description": "Stydy project to company",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Framework/",
+            "Models\\": "App/Models/",
+            "Controllers\\": "App/Controllers/",
+            "Db\\": "App/Services/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pavel Butenko",
+            "email": "butenkobutenko2019@gmail.com"
+        }
+    ],
+    "classmap-authoritative": true,
+    "classmap": [
+        "Framework/core/",
+        "App/Models/",
+      "App/Controllers/"
+    ],
+    "require": {
+        "monolog/monolog": "^2.3",
+        "squizlabs/php_codesniffer": "^3.6",
+        "friendsofphp/php-cs-fixer": "^3.0"
+
+    }
+}
